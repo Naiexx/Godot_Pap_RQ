@@ -9,7 +9,6 @@ size = Vector2(14, 4)
 [node name="Node2D" type="Node2D"]
 
 [node name="Character" type="CharacterBody2D" parent="."]
-position = Vector2(75, 33)
 script = ExtResource("1_chouu")
 
 [node name="Texture" type="Sprite2D" parent="Character"]
