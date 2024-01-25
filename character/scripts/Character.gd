@@ -1,7 +1,7 @@
 extends CharacterBody2D
 #test comment
 @export_category("Variables")
-@export var _move_speed: float = 64.0
+@export var _move_speed: float = 120.0
 
 @export var _friction: float = 0.3
 @export var _acceleration: float = 0.2
