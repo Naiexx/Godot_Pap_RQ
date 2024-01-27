@@ -1,7 +1,7 @@
 extends CharacterBody2D
 #test comment
 @export_category("Variables")
-@export var _move_speed: float = 120.0
+@export var _move_speed: float = 150.0
 
 @export var _friction: float = 0.3
 @export var _acceleration: float = 0.2
@@ -27,3 +27,13 @@ func _move() -> void:
 	velocity.y = lerp(velocity.y, _direction.normalized().y * _move_speed, _friction)
 	#velocity = _direction.normalized() * _move_speed
 		
+
+
+func _on_pc_body_entered(body):
+	Global.activate_e = true
+
+
+func _on_pc_body_exited(body):
+	Global.activate_e = false
+	
+
