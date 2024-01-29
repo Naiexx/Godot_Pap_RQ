@@ -30,10 +30,16 @@ func _move() -> void:
 
 
 func _on_pc_body_entered(body):
+	print("entrou")
 	Global.activate_e = true
 
 
 func _on_pc_body_exited(body):
+	print("saiu")
 	Global.activate_e = false
 	
 
+
+
+func _on_area_2d_body_entered(body):
+	print("entrou2")
