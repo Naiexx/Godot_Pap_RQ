@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hts4vbpfukmi"
-path="res://.godot/imported/Personagem_parado_frente_png.png-641fccc385ddc5851a71ac26550006d5.ctex"
+uid="uid://v3l3grawahie"
+path="res://.godot/imported/Personagem_andar_lado_direita.png-6736ac40038df1b2ab1cd483382d7a83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/Personagem_parado_frente_png.png"
-dest_files=["res://.godot/imported/Personagem_parado_frente_png.png-641fccc385ddc5851a71ac26550006d5.ctex"]
+source_file="res://character/assets/Personagem_andar_lado_direita.png"
+dest_files=["res://.godot/imported/Personagem_andar_lado_direita.png-6736ac40038df1b2ab1cd483382d7a83.ctex"]
 
 [params]
 
