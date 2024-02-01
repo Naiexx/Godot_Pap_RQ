@@ -51,7 +51,7 @@ func _on_pc_body_entered(body):
 func _on_pc_body_exited(body):
 	print("saiu")
 	Global.activate_e = false
-	
+	#boas
 
 
 
