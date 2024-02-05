@@ -13,4 +13,6 @@ func _process(delta):
 func _input(event):
 	if Global.activate_e and event.is_action_pressed("interaction_e"):
 		print("ola")
+		%Control.visible = true
+		
 

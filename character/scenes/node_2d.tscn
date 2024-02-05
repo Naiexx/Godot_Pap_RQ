@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://brjprsl7ft2sb"]
+[gd_scene load_steps=74 format=3 uid="uid://brjprsl7ft2sb"]
 
 [ext_resource type="Script" path="res://character/scripts/Character.gd" id="1_chouu"]
 [ext_resource type="Texture2D" uid="uid://hts4vbpfukmi" path="res://character/assets/Personagem_parado_frente_png.png" id="2_wy42f"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dkqii8h6g4hbq" path="res://character/assets/Personagem_andar_frente.png" id="8_vjj6w"]
 [ext_resource type="Texture2D" uid="uid://bhtkq8csoovrm" path="res://character/assets/Personagem_andar_lado_esquerda.png" id="9_ibboa"]
 [ext_resource type="Texture2D" uid="uid://c5ohgnsicywxn" path="res://character/assets/Personagem_andar_costas.png" id="11_5i1aq"]
+[ext_resource type="PackedScene" uid="uid://gqx3pbthin7n" path="res://control.tscn" id="16_2cnok"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlb7i"]
 resource_name = "Interior"
@@ -4774,8 +4775,8 @@ layer_2/name = "layer 1"
 layer_2/tile_data = PackedInt32Array(917525, 851969, 268435459, 5, 655360, 66, 65541, 655360, 67, 6, 720896, 66, 65542, 720896, 67, 19, 655360, 71, 65555, 655360, 72, 131091, 655360, 73, 20, 720896, 71, 65556, 720896, 72, 131092, 720896, 73, 17, 917504, 71, 65553, 917504, 72, 131089, 917504, 73, 18, 983040, 71, 65554, 983040, 72, 131090, 983040, 73, 393235, 196608, 80, 458771, 196608, 81, 524307, 196608, 82, 393236, 262144, 80, 458772, 262144, 81, 524308, 262144, 82, 327690, 458752, 15, 393226, 458752, 16, 458762, 458752, 17, 327691, 524288, 15, 393227, 524288, 16, 458763, 524288, 17, 327693, 589824, 15, 393229, 589824, 16, 458765, 589824, 17, 327694, 655360, 15, 393230, 655360, 16, 458766, 655360, 17, 393228, 655360, 14, 327692, 524288, 15, 458764, 524288, 17, 65545, 0, 41, 65546, 65536, 41)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(385, 240)
-zoom = Vector2(1.5, 1.5)
+position = Vector2(363, 230)
+zoom = Vector2(1.575, 1.575)
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -4847,6 +4848,10 @@ layer_2/name = "layer 1"
 layer_2/tile_data = PackedInt32Array(917525, 851969, 268435459)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("16_2cnok")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="body_entered" from="YSort/PC" to="YSort/Character" method="_on_pc_body_entered"]
 [connection signal="body_exited" from="YSort/PC" to="YSort/Character" method="_on_pc_body_exited"]
