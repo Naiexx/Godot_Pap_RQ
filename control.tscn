@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://gqx3pbthin7n"]
+[gd_scene load_steps=8 format=3 uid="uid://gqx3pbthin7n"]
 
+[ext_resource type="Script" path="res://control.gd" id="1_f7aqv"]
 [ext_resource type="Script" path="res://OptionButton.gd" id="1_qb5ig"]
 [ext_resource type="Script" path="res://TurmaOptionButton.gd" id="2_2hurp"]
 
@@ -57,6 +58,7 @@ offset_right = -12.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_f7aqv")
 
 [node name="BackGround" type="ColorRect" parent="."]
 layout_mode = 1
@@ -81,13 +83,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -457.0
-offset_top = -255.0
+offset_top = -256.0
 offset_right = -358.0
 offset_bottom = 257.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NomeLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 559.0
 offset_top = 163.0
 offset_right = 606.0
@@ -120,6 +123,7 @@ offset_top = 188.0
 offset_right = 419.0
 offset_bottom = 219.0
 placeholder_text = "ex:2794"
+max_length = 4
 
 [node name="NomeLineEdit" type="LineEdit" parent="."]
 layout_mode = 0
@@ -174,7 +178,7 @@ theme = SubResource("Theme_fqomn")
 text = "Salvar
 "
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="DataLineEdit" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 908.0
 offset_top = 188.0
@@ -196,3 +200,16 @@ offset_left = 308.0
 offset_top = 320.0
 offset_right = 1071.0
 offset_bottom = 587.0
+
+[node name="CriarButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 312.0
+offset_top = 342.0
+offset_right = 413.0
+offset_bottom = 383.0
+disabled = true
+text = "criar"
+
+[connection signal="button_down" from="SalvarButton" to="." method="_on_salvar_button_button_down"]
+[connection signal="button_down" from="CriarButton" to="." method="_on_criar_button_button_down"]
