@@ -12,8 +12,9 @@ func _process(delta):
 
 func _input(event):
 	if Global.activate_e and event.is_action_pressed("interaction_e"):
-		print("ola")
-		%Control.visible = true
+		%Control.visible = true #Caso ele carrege no E o PC vai abrir
 		
+	if Global.activate_e and event.is_action_pressed("ui_cancel"):
+		%Control.visible = false #Caso ele carrege no ESC o PC vai fechar
 
 

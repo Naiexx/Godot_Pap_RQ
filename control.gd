@@ -13,6 +13,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if $NomeLineEdit.text != "" && %CursoOptionButton.text != "" && $BaLineEdit.text != "" && $TurmaOptionButton.text != "" && $DataLineEdit.text != "":
+		%SalvarButton.disabled = false
+	else:
+		%SalvarButton.disabled = true
+	
 	pass
 
 
@@ -38,5 +43,10 @@ func _on_salvar_button_button_down():
 		"datadenascimento" : $DataLineEdit.text
 	}
 	
-	database.insert_row("aplicativo", data)
+	#database.insert_row("aplicativo", data)
+	var rows = database.select_rows("aplicativo", "id >= 0", ["*"])
+	var info_text = ""
+	for row in rows:
+			info_text = "" + str(row["id"]) + ",  " + row["nome"] +  ",  " + str(row["ba"]) + "\n"
+			print(info_text)
 	pass # Replace with function body.

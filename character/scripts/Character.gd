@@ -41,19 +41,14 @@ func _animate() -> void:
 	if velocity.length() > 3: #Se a velocidade do personagem for diferente de 0, Significa que esta a andar
 		_state_machine.travel("walk")
 		return
-	_state_machine.travel("idle")
+	_state_machine.travel("idle") #Se for 0 ele esta parado
 
 func _on_pc_body_entered(body):
 	print("entrou")
-	Global.activate_e = true
+	Global.activate_e = true #Caso ele entre na colisão no PC o SPRITE_E aparece
 
 
 func _on_pc_body_exited(body):
 	print("saiu")
-	Global.activate_e = false
-	#boas
+	Global.activate_e = false #Caso ele saia da colisão no PC o SPRITE_E desaparece
 
-
-
-func _on_area_2d_body_entered(body):
-	print("entrou2")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://brjprsl7ft2sb"]
+[gd_scene load_steps=81 format=3 uid="uid://brjprsl7ft2sb"]
 
 [ext_resource type="Script" path="res://character/scripts/Character.gd" id="1_chouu"]
 [ext_resource type="Texture2D" uid="uid://hts4vbpfukmi" path="res://character/assets/Personagem_parado_frente_png.png" id="2_wy42f"]
@@ -10,12 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://c4iiulknpq3tu" path="res://character/assets/Personagem_parado_lado_direita.png" id="6_me5hv"]
 [ext_resource type="Texture2D" uid="uid://bs7x1ulwnxxom" path="res://terrain/sprites/pc_spr.png" id="6_vdpgu"]
 [ext_resource type="Texture2D" uid="uid://427ckcx4jh2p" path="res://character/assets/Personagem_Parado_costas.png" id="7_k3t4n"]
-[ext_resource type="Texture2D" uid="uid://crkepqypfxsgl" path="res://terrain/sprites/06bec8f1-bb69-4cbe-bcf2-f2372fdbb33d.png" id="7_nlkgc"]
-[ext_resource type="Script" path="res://terrain/scripts/Sprite_e.gd" id="8_3y0vv"]
 [ext_resource type="Texture2D" uid="uid://dkqii8h6g4hbq" path="res://character/assets/Personagem_andar_frente.png" id="8_vjj6w"]
 [ext_resource type="Texture2D" uid="uid://bhtkq8csoovrm" path="res://character/assets/Personagem_andar_lado_esquerda.png" id="9_ibboa"]
 [ext_resource type="Texture2D" uid="uid://c5ohgnsicywxn" path="res://character/assets/Personagem_andar_costas.png" id="11_5i1aq"]
 [ext_resource type="PackedScene" uid="uid://gqx3pbthin7n" path="res://control.tscn" id="16_2cnok"]
+[ext_resource type="Texture2D" uid="uid://dc30axhedwx65" path="res://character/assets/New Piskel.png" id="16_7ffsj"]
+[ext_resource type="Script" path="res://terrain/scripts/Animated_e_pc.gd" id="17_11qih"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlb7i"]
 resource_name = "Interior"
@@ -4761,6 +4761,56 @@ sources/1 = SubResource("TileSetAtlasSource_064sq")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvwed"]
 size = Vector2(74, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq4ul"]
+atlas = ExtResource("16_7ffsj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bumln"]
+atlas = ExtResource("16_7ffsj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88xql"]
+atlas = ExtResource("16_7ffsj")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf4o6"]
+atlas = ExtResource("16_7ffsj")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f1cp"]
+atlas = ExtResource("16_7ffsj")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6w8j"]
+atlas = ExtResource("16_7ffsj")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1c43"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sq4ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bumln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88xql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vf4o6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f1cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6w8j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1, 0)
 
@@ -4832,11 +4882,14 @@ shape = SubResource("RectangleShape2D_lvwed")
 position = Vector2(193, 181)
 texture = ExtResource("6_vdpgu")
 
-[node name="Sprite_e" type="Sprite2D" parent="."]
-position = Vector2(180, 128)
-scale = Vector2(1.875, 1.875)
-texture = ExtResource("7_nlkgc")
-script = ExtResource("8_3y0vv")
+[node name="Animated_e_pc" type="AnimatedSprite2D" parent="."]
+position = Vector2(179, 133)
+scale = Vector2(1.69531, 1.69531)
+sprite_frames = SubResource("SpriteFrames_c1c43")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0094063
+script = ExtResource("17_11qih")
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_4ujvk")
