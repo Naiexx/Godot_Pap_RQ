@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dkqii8h6g4hbq" path="res://character/assets/Personagem_andar_frente.png" id="8_vjj6w"]
 [ext_resource type="Texture2D" uid="uid://bhtkq8csoovrm" path="res://character/assets/Personagem_andar_lado_esquerda.png" id="9_ibboa"]
 [ext_resource type="Texture2D" uid="uid://c5ohgnsicywxn" path="res://character/assets/Personagem_andar_costas.png" id="11_5i1aq"]
-[ext_resource type="PackedScene" uid="uid://gqx3pbthin7n" path="res://control.tscn" id="16_2cnok"]
+[ext_resource type="PackedScene" uid="uid://gqx3pbthin7n" path="res://app/scenes/control.tscn" id="16_2cnok"]
 [ext_resource type="Texture2D" uid="uid://dc30axhedwx65" path="res://character/assets/New Piskel.png" id="16_7ffsj"]
 [ext_resource type="Script" path="res://terrain/scripts/Animated_e_pc.gd" id="17_11qih"]
 

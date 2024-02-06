@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://gqx3pbthin7n"]
+[gd_scene load_steps=9 format=3 uid="uid://gqx3pbthin7n"]
 
-[ext_resource type="Script" path="res://control.gd" id="1_f7aqv"]
-[ext_resource type="Script" path="res://OptionButton.gd" id="1_qb5ig"]
-[ext_resource type="Script" path="res://TurmaOptionButton.gd" id="2_2hurp"]
+[ext_resource type="Script" path="res://app/scripts/control.gd" id="1_f7aqv"]
+[ext_resource type="Script" path="res://app/scenes/HBoxContainer.gd" id="2_lniob"]
+[ext_resource type="Script" path="res://app/scripts/OptionButton.gd" id="2_v3822"]
+[ext_resource type="Script" path="res://app/scripts/TurmaOptionButton.gd" id="3_vn7si"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4p3t"]
 bg_color = Color(0, 0.352941, 0, 1)
@@ -75,6 +76,105 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.235294, 0.235294, 0.235294, 1)
 
+[node name="HBoxContainer" type="HBoxContainer" parent="BackGround"]
+visible = false
+layout_mode = 0
+offset_left = 126.0
+offset_top = 222.0
+offset_right = 887.0
+offset_bottom = 262.0
+script = ExtResource("2_lniob")
+
+[node name="1" type="Label" parent="BackGround/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ba"
+
+[node name="2" type="Label" parent="BackGround/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nome"
+
+[node name="3" type="Label" parent="BackGround/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Turma"
+
+[node name="4" type="Label" parent="BackGround/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Curso"
+
+[node name="5" type="Label" parent="BackGround/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Data de Nascimento"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BackGround/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="BackGround/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Eleminar
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 339.0
+offset_right = 1070.0
+offset_bottom = 379.0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ba"
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nome"
+
+[node name="Label3" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Turma"
+
+[node name="Label4" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Curso"
+
+[node name="Label5" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Data de Nascimento"
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -108,6 +208,33 @@ offset_bottom = 186.0
 text = "Ba
 "
 
+[node name="CursoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 559.0
+offset_top = 226.0
+offset_right = 604.0
+offset_bottom = 249.0
+text = "Curso
+"
+
+[node name="TurmaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 226.0
+offset_right = 363.0
+offset_bottom = 249.0
+text = "Turma
+"
+
+[node name="DataLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 908.0
+offset_top = 163.0
+offset_right = 1065.0
+offset_bottom = 186.0
+text = "Data de Nascimento
+"
+
 [node name="PesquisaLineEdit" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 313.0
@@ -133,14 +260,12 @@ offset_right = 773.0
 offset_bottom = 219.0
 placeholder_text = "ex:Armindo Casca"
 
-[node name="CursoLabel" type="Label" parent="."]
+[node name="DataLineEdit" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 559.0
-offset_top = 226.0
-offset_right = 604.0
-offset_bottom = 249.0
-text = "Curso
-"
+offset_left = 908.0
+offset_top = 188.0
+offset_right = 1070.0
+offset_bottom = 219.0
 
 [node name="CursoOptionButton" type="OptionButton" parent="."]
 unique_name_in_owner = true
@@ -149,24 +274,16 @@ offset_left = 558.0
 offset_top = 252.0
 offset_right = 772.0
 offset_bottom = 284.0
-script = ExtResource("1_qb5ig")
-
-[node name="TurmaLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 312.0
-offset_top = 226.0
-offset_right = 363.0
-offset_bottom = 249.0
-text = "Turma
-"
+script = ExtResource("2_v3822")
 
 [node name="TurmaOptionButton" type="OptionButton" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 311.0
 offset_top = 252.0
 offset_right = 418.0
 offset_bottom = 284.0
-script = ExtResource("2_2hurp")
+script = ExtResource("3_vn7si")
 
 [node name="SalvarButton" type="Button" parent="."]
 unique_name_in_owner = true
@@ -180,29 +297,6 @@ disabled = true
 text = "Salvar
 "
 
-[node name="DataLineEdit" type="LineEdit" parent="."]
-layout_mode = 0
-offset_left = 908.0
-offset_top = 188.0
-offset_right = 1070.0
-offset_bottom = 219.0
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 908.0
-offset_top = 163.0
-offset_right = 1065.0
-offset_bottom = 186.0
-text = "Data de Nascimento
-"
-
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 308.0
-offset_top = 320.0
-offset_right = 1071.0
-offset_bottom = 587.0
-
 [node name="CriarButton" type="Button" parent="."]
 visible = false
 layout_mode = 0
@@ -213,5 +307,6 @@ offset_bottom = 383.0
 disabled = true
 text = "criar"
 
+[connection signal="pressed" from="BackGround/HBoxContainer/HBoxContainer/VBoxContainer/Button" to="BackGround/HBoxContainer" method="_on_button_pressed"]
 [connection signal="button_down" from="SalvarButton" to="." method="_on_salvar_button_button_down"]
 [connection signal="button_down" from="CriarButton" to="." method="_on_criar_button_button_down"]
