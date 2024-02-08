@@ -1,7 +1,6 @@
 extends HBoxContainer
 
 signal pressed
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -13,5 +12,7 @@ func _process(delta):
 
 
 func _on_button_pressed():
+	var a = int(str(self.get_name()))
+	a = a - 1
+	print(Global.teste[a])
 	emit_signal("pressed", self.get_name())
-	pass # Replace with function body.

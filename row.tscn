@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://d4kugu8sbadm0"]
+[gd_scene load_steps=2 format=3 uid="uid://d4kugu8sbadm0"]
+
+[ext_resource type="Script" path="res://row.gd" id="1_2pfge"]
 
 [node name="row" type="HBoxContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_2pfge")
 
 [node name="1" type="Label" parent="."]
 layout_mode = 2
@@ -42,3 +45,5 @@ alignment = 1
 layout_mode = 2
 text = "Eleminar
 "
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

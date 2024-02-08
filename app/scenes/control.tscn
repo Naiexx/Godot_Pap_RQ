@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://gqx3pbthin7n"]
+[gd_scene load_steps=8 format=3 uid="uid://gqx3pbthin7n"]
 
 [ext_resource type="Script" path="res://app/scripts/control.gd" id="1_f7aqv"]
-[ext_resource type="Script" path="res://app/scenes/HBoxContainer.gd" id="2_lniob"]
 [ext_resource type="Script" path="res://app/scripts/OptionButton.gd" id="2_v3822"]
 [ext_resource type="Script" path="res://app/scripts/TurmaOptionButton.gd" id="3_vn7si"]
 
@@ -76,60 +75,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.235294, 0.235294, 0.235294, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BackGround"]
-visible = false
-layout_mode = 0
-offset_left = 126.0
-offset_top = 222.0
-offset_right = 887.0
-offset_bottom = 262.0
-script = ExtResource("2_lniob")
-
-[node name="1" type="Label" parent="BackGround/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Ba"
-
-[node name="2" type="Label" parent="BackGround/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Nome"
-
-[node name="3" type="Label" parent="BackGround/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Turma"
-
-[node name="4" type="Label" parent="BackGround/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Curso"
-
-[node name="5" type="Label" parent="BackGround/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Data de Nascimento"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BackGround/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Button" type="Button" parent="BackGround/HBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Eleminar
-"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 313.0
-offset_top = 339.0
+offset_top = 306.0
 offset_right = 1070.0
-offset_bottom = 379.0
+offset_bottom = 604.0
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -165,7 +116,6 @@ text = "Data de Nascimento"
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 20.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer2"]
 layout_mode = 2
@@ -307,6 +257,5 @@ offset_bottom = 383.0
 disabled = true
 text = "criar"
 
-[connection signal="pressed" from="BackGround/HBoxContainer/HBoxContainer/VBoxContainer/Button" to="BackGround/HBoxContainer" method="_on_button_pressed"]
 [connection signal="button_down" from="SalvarButton" to="." method="_on_salvar_button_button_down"]
 [connection signal="button_down" from="CriarButton" to="." method="_on_criar_button_button_down"]

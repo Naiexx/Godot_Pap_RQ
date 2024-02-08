@@ -1,14 +1,52 @@
 extends Control
 
+
+var row = preload("res://row.tscn")
+@onready var table = get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer")
+var sn = 0
+var data=[{
+	"id":"110",
+	"name":"Hello Hi",
+	"cls":"8",
+	"rollno":"20"
+},
+{
+	"id":"110",
+	"name":"Hello Hi",
+	"cls":"8",
+	"rollno":"20"
+},
+{
+	"id":"110",
+	"name":"Hello Hi",
+	"cls":"8",
+	"rollno":"20"
+}]
 var database : SQLite
+
+func set_data(data:Dictionary):
+	sn =sn+1
+	
+	var instance = row.instantiate()
+	instance.name=str(sn)
+	table.add_child(instance)
+	#instance.connect("pressed", self, "_on_button_pressed")
+	
+	get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/1").text=data.id
+	get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/2").text=data.name
+	get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/3").text=data.cls
+	get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/4").text=data.rollno
+	pass
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-		
+	for i in range(0,data.size()):
+		set_data(data[i])
+	
 	database = SQLite.new()
 	database.path="res://data.db"
 	database.open_db()
 	pass # Replace with function body.
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,6 +57,8 @@ func _process(delta):
 		%SalvarButton.disabled = true
 	pass
 
+func _on_button_pressed(index):
+	print(index)
 
 func _on_criar_button_button_down():
 	var table = {
