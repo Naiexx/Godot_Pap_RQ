@@ -4,6 +4,7 @@ extends Control
 var row = preload("res://row.tscn")
 @onready var table = get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer")
 var sn = 0
+var i = 0
 var data=[{
 	"id":"110",
 	"name":"Hello Hi",
@@ -22,9 +23,10 @@ var data=[{
 	"cls":"8",
 	"rollno":"20"
 }]
+var nome = "carlos"
 var database : SQLite
 
-func set_data(data:Dictionary):
+func set_data(nome):
 	sn =sn+1
 	
 	var instance = row.instantiate()
@@ -32,19 +34,28 @@ func set_data(data:Dictionary):
 	table.add_child(instance)
 	#instance.connect("pressed", self, "_on_button_pressed")
 	
-	get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/1").text=data.id
-	get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/2").text=data.name
-	get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/3").text=data.cls
-	get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/4").text=data.rollno
+	#get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/1").text=data.id
+	#get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/2").text=data.name
+	#get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/3").text=data.cls
+	get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/4").text=nome
 	pass
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in range(0,data.size()):
-		set_data(data[i])
+	#for i in range(0,data.size()):
+		#set_data("antonio")
 	
 	database = SQLite.new()
 	database.path="res://data.db"
 	database.open_db()
+	
+	var rows = database.select_rows("aplicativo", "id >= 0", ["*"])
+	var info_text = ""
+	for row in rows:
+			#info_text = "" + str(row["id"]) + ",  " + row["nome"] +  ",  " + str(row["ba"]) + "\n"
+			info_text = "" + row["nome"] + "\n"
+			set_data(info_text)
+			print(info_text)
+	
 	pass # Replace with function body.
 	
 
@@ -56,9 +67,6 @@ func _process(delta):
 	else:
 		%SalvarButton.disabled = true
 	pass
-
-func _on_button_pressed(index):
-	print(index)
 
 func _on_criar_button_button_down():
 	var table = {
@@ -82,7 +90,7 @@ func _on_salvar_button_button_down():
 		"datadenascimento" : $DataLineEdit.text
 	}
 	
-	database.insert_row("aplicativo", data)
+	#database.insert_row("aplicativo", data)
 	var rows = database.select_rows("aplicativo", "id >= 0", ["*"])
 	var info_text = ""
 	for row in rows:

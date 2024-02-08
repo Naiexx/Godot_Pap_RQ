@@ -1,9 +1,10 @@
 extends Node
 
 var activate_e = false
+ 
 var teste = [{
 	"nome": "rolo",},
 	{
-	"nome": "rolo2",},
+	"nome1": "david34",},
 	{
-	"nome": "rolo3",}]
+	"nome2": "naiex",}]
