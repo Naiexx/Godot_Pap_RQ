@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	var a = int(str(self.get_name()))
-	a = a - 1
-	print(Global.teste[a])
+	var a = int(str(self.get_name())) #pega o numero da linna que ele clicou
+	a = a - 1 #temos que colocar menos um porque um array começa com 0
+	print(Global.all_ba[a]["nome" + str(a)]) #está a printar o nome que ele selecionou
 	

@@ -4,58 +4,38 @@ extends Control
 var row = preload("res://row.tscn")
 @onready var table = get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer")
 var sn = 0
-var i = 0
-var data=[{
-	"id":"110",
-	"name":"Hello Hi",
-	"cls":"8",
-	"rollno":"20"
-},
-{
-	"id":"110",
-	"name":"Hello Hi",
-	"cls":"8",
-	"rollno":"20"
-},
-{
-	"id":"110",
-	"name":"Hello Hi",
-	"cls":"8",
-	"rollno":"20"
-}]
-var nome = "carlos"
 var database : SQLite
 
-func set_data(nome):
-	sn =sn+1
+func set_data(nome, ba):
+	sn =sn+1 #aqui cada vez que é chamda esta função adicona +1 para saber quantas linhas ha
 	
-	var instance = row.instantiate()
-	instance.name=str(sn)
+	var instance = row.instantiate() #Aqui, um objeto instance está sendo criado instanciando um modelo chamado row. 
+	instance.name=str(sn) #para saber em qual linha ele clicou
 	table.add_child(instance)
-	#instance.connect("pressed", self, "_on_button_pressed")
 	
-	#get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/1").text=data.id
-	#get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/2").text=data.name
+	get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/1").text=ba
+	get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/2").text=nome
 	#get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/3").text=data.cls
-	get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/4").text=nome
+	#get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer/"+instance.name+"/4").text=nome
 	pass
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#for i in range(0,data.size()):
-		#set_data("antonio")
 	
 	database = SQLite.new()
 	database.path="res://data.db"
 	database.open_db()
 	
 	var rows = database.select_rows("aplicativo", "id >= 0", ["*"])
-	var info_text = ""
+	var info_ba = "" ; var info_nome = ""; var info_turma = ""; var info_curso = ""; var info_datadenascimento = ""
+	
 	for row in rows:
 			#info_text = "" + str(row["id"]) + ",  " + row["nome"] +  ",  " + str(row["ba"]) + "\n"
-			info_text = "" + row["nome"] + "\n"
-			set_data(info_text)
-			print(info_text)
-	
+			info_nome = "" + row["nome"]
+			info_ba = "" + str(row["ba"])
+			Global.all_ba.append({"nome" + str(sn): info_ba}) #está a adicionar à variavel global teste todos os nomes da base de dados
+			set_data(info_nome, info_ba) #está a chamar a funcão set_data e a adioncar os dados à tabela
+			print(info_nome)
 	pass # Replace with function body.
 	
 
