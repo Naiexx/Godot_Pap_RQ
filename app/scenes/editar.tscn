@@ -1,0 +1,149 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk52prf3jtqkr"]
+
+[ext_resource type="Script" path="res://app/scripts/editar.gd" id="1_i68oy"]
+[ext_resource type="Script" path="res://app/scripts/TurmaOptionButton2.gd" id="2_sx4p0"]
+[ext_resource type="Texture2D" uid="uid://dlagqhx707g4u" path="res://app/assets/x2-removebg-preview.png" id="4_oig6d"]
+[ext_resource type="Script" path="res://app/scripts/CurosOptionButton2.gd" id="4_y05ca"]
+
+[node name="Editar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i68oy")
+
+[node name="Desfocar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 128.0
+offset_right = 1094.0
+offset_bottom = 640.0
+color = Color(0, 0, 0, 0.380392)
+
+[node name="BackGround" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -136.0
+offset_right = 112.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[node name="BaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 256.0
+offset_right = 581.0
+offset_bottom = 279.0
+text = "Ba"
+
+[node name="BaLineEdit2" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 598.5
+offset_top = 251.0
+offset_right = 665.563
+offset_bottom = 282.0
+
+[node name="NomeLabel2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 290.0
+offset_right = 589.0
+offset_bottom = 313.0
+text = "Nome"
+
+[node name="NomeLineEdit2" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 599.0
+offset_top = 287.0
+offset_right = 743.0
+offset_bottom = 318.0
+
+[node name="DataLabel3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 326.0
+offset_right = 584.0
+offset_bottom = 349.0
+text = "Data
+"
+
+[node name="DataLineEdit2" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 599.0
+offset_top = 324.0
+offset_right = 694.0
+offset_bottom = 355.0
+
+[node name="TurmaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 365.0
+offset_right = 592.0
+offset_bottom = 388.0
+text = "Turma
+"
+
+[node name="TurmaOptionButt2on" type="OptionButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 599.0
+offset_top = 366.0
+offset_right = 662.0
+offset_bottom = 391.0
+script = ExtResource("2_sx4p0")
+
+[node name="CursoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 539.0
+offset_top = 399.0
+offset_right = 584.0
+offset_bottom = 422.0
+text = "Curso
+"
+
+[node name="CurosOptionButton2" type="OptionButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 598.0
+offset_top = 398.0
+offset_right = 714.0
+offset_bottom = 423.0
+script = ExtResource("4_y05ca")
+
+[node name="AtualizarButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 442.0
+offset_right = 733.0
+offset_bottom = 473.0
+text = "Atualizar
+"
+
+[node name="X2-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(735.5, 240.875)
+scale = Vector2(0.12, 0.134444)
+texture = ExtResource("4_oig6d")
+
+[node name="FecharButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 722.0
+offset_top = 226.0
+offset_right = 750.0
+offset_bottom = 257.0
+theme_type_variation = &"FlatButton"
+text = "  "
+
+[connection signal="pressed" from="AtualizarButton" to="." method="_on_atualizar_button_pressed"]
+[connection signal="pressed" from="FecharButton" to="." method="_on_fechar_button_pressed"]

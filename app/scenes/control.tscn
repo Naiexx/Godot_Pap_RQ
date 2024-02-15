@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://app/scripts/control.gd" id="1_f7aqv"]
 [ext_resource type="Script" path="res://app/scripts/OptionButton.gd" id="2_v3822"]
 [ext_resource type="Script" path="res://app/scripts/TurmaOptionButton.gd" id="3_vn7si"]
-[ext_resource type="PackedScene" uid="uid://dk52prf3jtqkr" path="res://editar.tscn" id="4_ytm1i"]
+[ext_resource type="PackedScene" uid="uid://dk52prf3jtqkr" path="res://app/scenes/editar.tscn" id="4_n708w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4p3t"]
 bg_color = Color(0, 0.352941, 0, 1)
@@ -264,7 +264,7 @@ text = "criar"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Editar" parent="CanvasLayer" instance=ExtResource("4_ytm1i")]
+[node name="Editar" parent="CanvasLayer" instance=ExtResource("4_n708w")]
 unique_name_in_owner = true
 visible = false
 

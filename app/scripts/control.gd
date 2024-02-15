@@ -1,7 +1,7 @@
 extends Control
 
 
-var row = preload("res://row.tscn")
+var row = preload("res://app/scenes/row.tscn")
 @onready var table = get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer")
 var sn = 0
 

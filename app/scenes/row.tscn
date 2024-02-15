@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://d4kugu8sbadm0"]
 
-[ext_resource type="Script" path="res://row.gd" id="1_2pfge"]
+[ext_resource type="Script" path="res://app/scripts/row.gd" id="1_vdwc5"]
 
 [node name="row" type="HBoxContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_2pfge")
+script = ExtResource("1_vdwc5")
 
 [node name="1" type="Label" parent="."]
 layout_mode = 2

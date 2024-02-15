@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-var a = int(str(self.get_name()))#pega o numero da linna que ele clicou
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,9 +14,8 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	
-	
-	a = Global.a - 1 #temos que colocar menos um porque um array começa com 0
+	var a = int(str(self.get_name()))#pega o numero da linna que ele clicou
+	a = a - 1 #temos que colocar menos um porque um array começa com 0
 	Global.database.delete_rows("aplicativo", "ba = '" + str(Global.all_ba[a]["nome" + str(a)])+ "'")
 	
 	Global.botaoclicado = true
@@ -24,6 +23,8 @@ func _on_button_pressed():
 
 
 func _on_button_2_pressed():
+	var a = int(str(self.get_name()))#pega o numero da linna que ele clicou
+	a = a - 1 #temos que colocar menos um porque um array começa com 0
 	var rows = Global.database.select_rows("aplicativo", "ba = '" + str(Global.all_ba[a]["nome" + str(a)])+ "'", ["*"])
 
 	for row in rows: #Corre as linhas da base de dados

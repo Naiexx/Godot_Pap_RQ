@@ -13,10 +13,9 @@ func _process(delta):
 		$BaLineEdit2.text= Global.info_ba2
 		$NomeLineEdit2.text = Global.info_nome2
 		$DataLineEdit2.text = Global.info_datadenascimento2
-		%TurmaOptionButton.text = Global.info_turma2
+		%TurmaOptionButt2on.text = Global.info_turma2
 		%CurosOptionButton2.text = Global.info_curso2
 		add = true
-	print("a")
 	pass
 
 
@@ -25,10 +24,18 @@ func _on_atualizar_button_pressed():
 	Global.database.update_rows("aplicativo", "ba = '" + Global.info_ba2 + "'", {"ba": (%BaLineEdit2.text) })
 	Global.database.update_rows("aplicativo", "datadenascimento = '" + Global.info_datadenascimento2 + "'", {"datadenascimento": (%DataLineEdit2.text) })
 	Global.database.update_rows("aplicativo", "curso = '" + Global.info_curso2 + "'", {"curso": (%CurosOptionButton2.text) })
-	Global.database.update_rows("aplicativo", "turma = '" + Global.info_turma2 + "'", {"turma": (%TurmaOptionButton.text) })
-	
+	Global.database.update_rows("aplicativo", "turma = '" + Global.info_turma2 + "'", {"turma": (%TurmaOptionButt2on.text) })
+	Global.activate_editar = false
+	visible = false
 	Global.botaoclicado = true
+	
 	print("a")
 	pass # Replace with function body.
 	
 
+
+
+func _on_fechar_button_pressed():
+	Global.activate_editar = false
+	visible = false
+	pass # Replace with function body.
