@@ -8,5 +8,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	visible = Global.activate_e
+	if visible != Global.activate_e:
+		visible = Global.activate_e
 	

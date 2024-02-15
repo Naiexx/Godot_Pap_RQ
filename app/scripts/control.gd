@@ -5,7 +5,6 @@ var row = preload("res://row.tscn")
 @onready var table = get_node("VBoxContainer/PanelContainer2/ScrollContainer/VBoxContainer")
 var sn = 0
 
-
 func set_data(nome, ba, turma, curso, datadenascimento):
 	sn =sn+1 #aqui cada vez que é chamda esta função adicona +1 para saber quantas linhas ha
 	
@@ -24,29 +23,28 @@ func set_data(nome, ba, turma, curso, datadenascimento):
 func _ready():
 	
 	Global.database = SQLite.new()
-	Global.database.path="res://data.db"
-	Global.database.open_db()
+	Global.database.path="res://data.db" #
+	Global.database.open_db() #Abre a pasta de SQL onde sao armazenados os dados
 	
-	var rows = Global.database.select_rows("aplicativo", "id >= 0", ["*"])
+	var rows = Global.database.select_rows("aplicativo", "id >= 0", ["*"]) # Seleciona os dados onde o id é igual ou maior a zero
 	var info_ba = "" ; var info_nome = ""; var info_turma = ""; var info_curso = ""; var info_datadenascimento = ""
 	
-	for row in rows:
-			#info_text = "" + str(row["id"]) + ",  " + row["nome"] +  ",  " + str(row["ba"]) + "\n"
-			info_nome = "" + row["nome"]
+	for row in rows: #Corre as linhas da base de dados
+			info_nome = "" + row["nome"] #está a ficar = ao nome da linha percorrida
 			info_ba = "" + str(row["ba"])
 			info_turma = "" + row["turma"]
 			info_curso = "" + row["curso"]
 			info_datadenascimento = "" + str(row["datadenascimento"])
-			Global.all_ba.append({"nome" + str(sn): info_ba}) #está a adicionar à variavel global teste todos os nomes da base de dados
+			Global.all_ba.append({"nome" + str(sn): info_ba}) #está a adicionar à variavel global teste todos os ba da base de dados
 			set_data(info_nome, info_ba, info_curso, info_turma, info_datadenascimento) #está a chamar a funcão set_data e a adioncar os dados à tabela
 			print(info_nome)
-			
 	pass # Replace with function body.
 	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#Se algum destes campos nao estiver preenchido o botao salvar fica indisponivel caso contrario fica disponivel
 	if $NomeLineEdit.text != "" && %CursoOptionButton.text != "" && $BaLineEdit.text != "" && $TurmaOptionButton.text != "" && $DataLineEdit.text != "":
 		%SalvarButton.disabled = false
 	else:
@@ -57,9 +55,21 @@ func _process(delta):
 		sn = 0
 		Global.botaoclicado = false
 		Global.all_ba.clear()
-		get_tree().reload_current_scene()
+		clear_table()
+		_ready()
+
+	if (Global.activate_editar == true): #Mete a cena editar visivel+
+		if(%Editar.visible != true):
+			%Editar.visible = true
+		
+	
+func clear_table():
+	# Corre sobre as crianças do nó da tabela e remove-as uma por uma
+	for child in table.get_children():
+		table.remove_child(child)
 
 func _on_criar_button_button_down():
+	#Cria uma tabela na base de dados
 	var table = {
 		"id" : {"data_type":"int", "primary_key": true, "not_null":true, "auto_increment" : true},
 		"nome" : {"data_type" : "text"},
@@ -73,6 +83,7 @@ func _on_criar_button_button_down():
 
 
 func _on_salvar_button_button_down():
+	
 	var data = {
 		"nome" : $NomeLineEdit.text,
 		"curso" : %CursoOptionButton.text,
@@ -80,7 +91,7 @@ func _on_salvar_button_button_down():
 		"turma" : $TurmaOptionButton.text,
 		"datadenascimento" : $DataLineEdit.text
 	}
-	
+	# Salva na base de dados os dados preenchidos nos campos
 	Global.database.insert_row("aplicativo", data)
 	var rows = Global.database.select_rows("aplicativo", "id >= 0", ["*"])
 	var info_text = ""

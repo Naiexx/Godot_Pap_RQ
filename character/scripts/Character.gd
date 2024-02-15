@@ -12,7 +12,12 @@ var _state_machine
 @export var _animtaion_tree: AnimationTree = null
 
 func _ready() -> void:
+	
 	_state_machine = _animtaion_tree["parameters/playback"]
+	
+func _on_dados_atualizados():
+	Global.botaoclicado = true
+	pass
 
 func _physics_process(_delta: float) -> void:
 	_move()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://gqx3pbthin7n"]
+[gd_scene load_steps=9 format=3 uid="uid://gqx3pbthin7n"]
 
 [ext_resource type="Script" path="res://app/scripts/control.gd" id="1_f7aqv"]
 [ext_resource type="Script" path="res://app/scripts/OptionButton.gd" id="2_v3822"]
 [ext_resource type="Script" path="res://app/scripts/TurmaOptionButton.gd" id="3_vn7si"]
+[ext_resource type="PackedScene" uid="uid://dk52prf3jtqkr" path="res://editar.tscn" id="4_ytm1i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4p3t"]
 bg_color = Color(0, 0.352941, 0, 1)
@@ -262,6 +263,10 @@ disabled = true
 text = "criar"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Editar" parent="CanvasLayer" instance=ExtResource("4_ytm1i")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="button_down" from="SalvarButton" to="." method="_on_salvar_button_button_down"]
 [connection signal="button_down" from="CriarButton" to="." method="_on_criar_button_button_down"]
