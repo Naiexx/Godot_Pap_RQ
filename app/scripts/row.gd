@@ -16,7 +16,7 @@ func _process(delta):
 func _on_button_pressed():
 	var a = int(str(self.get_name()))#pega o numero da linna que ele clicou
 	a = a - 1 #temos que colocar menos um porque um array começa com 0
-	Global.database.delete_rows("aplicativo", "ba = '" + str(Global.all_ba[a]["nome" + str(a)])+ "'")
+	Global.database.delete_rows("aplicativo", "ba = '" + str(Global.all_ba[a]["nome" + str(a)])+ "'")#elimina na base de dados 
 	
 	Global.botaoclicado = true
 	print(Global.all_ba[a]["nome" + str(a)])#está a printar o ba que ele selecionou
@@ -25,7 +25,7 @@ func _on_button_pressed():
 func _on_button_2_pressed():
 	var a = int(str(self.get_name()))#pega o numero da linna que ele clicou
 	a = a - 1 #temos que colocar menos um porque um array começa com 0
-	var rows = Global.database.select_rows("aplicativo", "ba = '" + str(Global.all_ba[a]["nome" + str(a)])+ "'", ["*"])
+	var rows = Global.database.select_rows("aplicativo", "ba = '" + str(Global.all_ba[a]["nome" + str(a)])+ "'", ["*"])# atualiza na base de dados
 
 	for row in rows: #Corre as linhas da base de dados
 			Global.info_nome2 = "" + row["nome"] #está a ficar = ao nome da linha percorrida

@@ -16,10 +16,10 @@ script = ExtResource("1_i68oy")
 
 [node name="Desfocar" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 178.0
-offset_top = 128.0
-offset_right = 1094.0
-offset_bottom = 640.0
+offset_left = 170.0
+offset_top = 99.0
+offset_right = 1086.0
+offset_bottom = 611.0
 color = Color(0, 0, 0, 0.380392)
 
 [node name="BackGround" type="ColorRect" parent="."]

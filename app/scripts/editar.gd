@@ -28,14 +28,19 @@ func _on_atualizar_button_pressed():
 	Global.activate_editar = false
 	visible = false
 	Global.botaoclicado = true
-	
+	add = false
 	print("a")
 	pass # Replace with function body.
 	
-
+func _input(event):
+	if Global.activate_editar == true and event.is_action_pressed("ui_cancel"):
+		Global.activate_editar = false
+		add = false
+		visible = false #Caso ele carrege no ESC o PC vai fechar
 
 
 func _on_fechar_button_pressed():
 	Global.activate_editar = false
+	add = false
 	visible = false
 	pass # Replace with function body.

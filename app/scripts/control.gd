@@ -83,7 +83,10 @@ func _on_criar_button_button_down():
 
 
 func _on_salvar_button_button_down():
-	
+	var Baa = $BaLineEdit.text
+	var SelecionaBa = Global.database.select_rows("aplicativo", "ba >= 0", ["*"])
+	var registroExiste = false
+
 	var data = {
 		"nome" : $NomeLineEdit.text,
 		"curso" : %CursoOptionButton.text,
@@ -92,16 +95,23 @@ func _on_salvar_button_button_down():
 		"datadenascimento" : $DataLineEdit.text
 	}
 	# Salva na base de dados os dados preenchidos nos campos
-	Global.database.insert_row("aplicativo", data)
-	var rows = Global.database.select_rows("aplicativo", "id >= 0", ["*"])
-	var info_text = ""
 	
 	
-	for row in rows:
-			info_text = "" + str(row["id"]) + ",  " + row["nome"] +  ",  " + str(row["ba"]) + "\n"
-			
-			print(info_text)
-	Global.botaoclicado = true
+	for row in SelecionaBa:
+		# Verifique se o texto inserido está presente na linha atual
+		if str(row.ba) == Baa:
+			registroExiste = true
+			print("ja existe")
+	if not registroExiste:
+		Global.database.insert_row("aplicativo", data)
+		Global.botaoclicado = true
+	
+	
+	$NomeLineEdit.text = ""
+	%CursoOptionButton.text = ""
+	$BaLineEdit.text = ""
+	$TurmaOptionButton.text = ""
+	$DataLineEdit.text = ""
 	pass # Replace with function body.
 
 
