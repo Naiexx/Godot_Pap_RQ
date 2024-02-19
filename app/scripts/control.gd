@@ -21,7 +21,7 @@ func set_data(nome, ba, turma, curso, datadenascimento):
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+
 	Global.database = SQLite.new()
 	Global.database.path="res://data.db" #
 	Global.database.open_db() #Abre a pasta de SQL onde sao armazenados os dados
@@ -98,21 +98,28 @@ func _on_salvar_button_button_down():
 	
 	
 	for row in SelecionaBa:
-		# Verifique se o texto inserido está presente na linha atual
+		# Verifique se o texto inserido está presente na linha atual, se existir nao vai insrir o registo
 		if str(row.ba) == Baa:
 			registroExiste = true
+			$BaExistente.visible = true
 			print("ja existe")
-	if not registroExiste:
+	if not registroExiste: #se não existir nenhum ba com esse valor vai inserir na base de dados
 		Global.database.insert_row("aplicativo", data)
 		Global.botaoclicado = true
+		$NomeLineEdit.text = ""
+		%CursoOptionButton.text = ""
+		$BaLineEdit.text = ""
+		$TurmaOptionButton.text = ""
+		$DataLineEdit.text = ""
+		
 	
 	
-	$NomeLineEdit.text = ""
-	%CursoOptionButton.text = ""
-	$BaLineEdit.text = ""
-	$TurmaOptionButton.text = ""
-	$DataLineEdit.text = ""
+
 	pass # Replace with function body.
 
+func _on_ba_line_edit_text_changed(new_text):
+	
+	$BaExistente.visible = false
+	pass # Replace with function body.
 
 

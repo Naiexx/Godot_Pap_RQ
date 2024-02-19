@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk52prf3jtqkr"]
+[gd_scene load_steps=6 format=3 uid="uid://dk52prf3jtqkr"]
 
 [ext_resource type="Script" path="res://app/scripts/editar.gd" id="1_i68oy"]
 [ext_resource type="Script" path="res://app/scripts/TurmaOptionButton2.gd" id="2_sx4p0"]
 [ext_resource type="Texture2D" uid="uid://dlagqhx707g4u" path="res://app/assets/x2-removebg-preview.png" id="4_oig6d"]
 [ext_resource type="Script" path="res://app/scripts/CurosOptionButton2.gd" id="4_y05ca"]
+
+[sub_resource type="Theme" id="Theme_33gfp"]
+Label/colors/font_color = Color(1, 0.258824, 0.2, 1)
+Label/font_sizes/font_size = 11
 
 [node name="Editar" type="Control"]
 layout_mode = 3
@@ -52,6 +56,15 @@ offset_left = 598.5
 offset_top = 251.0
 offset_right = 665.563
 offset_bottom = 282.0
+
+[node name="BaExistente" type="Label" parent="."]
+visible = false
+offset_left = 669.0
+offset_top = 257.0
+offset_right = 755.0
+offset_bottom = 273.0
+theme = SubResource("Theme_33gfp")
+text = "Ba já existente"
 
 [node name="NomeLabel2" type="Label" parent="."]
 layout_mode = 0
@@ -145,5 +158,6 @@ offset_bottom = 257.0
 theme_type_variation = &"FlatButton"
 text = "  "
 
+[connection signal="text_changed" from="BaLineEdit2" to="." method="_on_ba_line_edit_2_text_changed"]
 [connection signal="pressed" from="AtualizarButton" to="." method="_on_atualizar_button_pressed"]
 [connection signal="pressed" from="FecharButton" to="." method="_on_fechar_button_pressed"]
