@@ -6,6 +6,8 @@ var botaoclicado = false
 
 var activate_e = false
 
+var _move_speed: float = 150.0
+
 var all_ba = []
 
 var activate_editar = false
