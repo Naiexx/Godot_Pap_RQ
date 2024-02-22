@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://brjprsl7ft2sb"]
+[gd_scene load_steps=92 format=3 uid="uid://brjprsl7ft2sb"]
 
 [ext_resource type="Script" path="res://character/scripts/Character.gd" id="1_chouu"]
 [ext_resource type="Texture2D" uid="uid://hts4vbpfukmi" path="res://character/assets/Personagem_parado_frente_png.png" id="2_wy42f"]
@@ -15,7 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://c5ohgnsicywxn" path="res://character/assets/Personagem_andar_costas.png" id="11_5i1aq"]
 [ext_resource type="PackedScene" uid="uid://gqx3pbthin7n" path="res://app/scenes/control.tscn" id="16_2cnok"]
 [ext_resource type="Texture2D" uid="uid://dc30axhedwx65" path="res://character/assets/New Piskel.png" id="16_7ffsj"]
+[ext_resource type="Texture2D" uid="uid://cb0ctq2omtqbu" path="res://character/assets/Bob_16x16.png" id="17_4gxv0"]
 [ext_resource type="Script" path="res://terrain/scripts/Animated_e_pc.gd" id="17_11qih"]
+[ext_resource type="Script" path="res://npc/scripts/Npc.gd" id="17_icouo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlb7i"]
 resource_name = "Interior"
@@ -4811,6 +4813,62 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qht66"]
+atlas = ExtResource("17_4gxv0")
+region = Rect2(96, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck8im"]
+atlas = ExtResource("17_4gxv0")
+region = Rect2(112, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43g6s"]
+atlas = ExtResource("17_4gxv0")
+region = Rect2(128, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bev2i"]
+atlas = ExtResource("17_4gxv0")
+region = Rect2(144, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1prk5"]
+atlas = ExtResource("17_4gxv0")
+region = Rect2(160, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4b78"]
+atlas = ExtResource("17_4gxv0")
+region = Rect2(176, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_idpn3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qht66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck8im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43g6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bev2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1prk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4b78")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5pdr"]
+size = Vector2(38, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt08w"]
+size = Vector2(21, 14)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1, 0)
 
@@ -4846,7 +4904,6 @@ position = Vector2(-1, -38)
 scale = Vector2(2.40625, 2.40625)
 sprite_frames = SubResource("SpriteFrames_ha2vw")
 animation = &"idle_down"
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Character"]
 libraries = {
@@ -4900,6 +4957,27 @@ layer_1/tile_data = PackedInt32Array(655369, 458753, 1879048193, 655375, 458753,
 layer_2/name = "layer 1"
 layer_2/tile_data = PackedInt32Array(917525, 851969, 268435459)
 
+[node name="Npc" type="CharacterBody2D" parent="."]
+position = Vector2(-2, -3)
+script = ExtResource("17_icouo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Npc"]
+position = Vector2(348, 362)
+scale = Vector2(2.125, 2.125)
+sprite_frames = SubResource("SpriteFrames_idpn3")
+autoplay = "default"
+
+[node name="AreaNpc" type="Area2D" parent="Npc"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc/AreaNpc"]
+position = Vector2(348, 354)
+shape = SubResource("RectangleShape2D_p5pdr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc"]
+position = Vector2(348.5, 389)
+shape = SubResource("RectangleShape2D_tt08w")
+disabled = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("16_2cnok")]
@@ -4908,3 +4986,5 @@ visible = false
 
 [connection signal="body_entered" from="YSort/PC" to="YSort/Character" method="_on_pc_body_entered"]
 [connection signal="body_exited" from="YSort/PC" to="YSort/Character" method="_on_pc_body_exited"]
+[connection signal="body_entered" from="Npc/AreaNpc" to="YSort/Character" method="_on_area_npc_body_entered"]
+[connection signal="body_exited" from="Npc/AreaNpc" to="YSort/Character" method="_on_area_npc_body_exited"]

@@ -37,7 +37,7 @@ func _ready():
 			info_datadenascimento = "" + str(row["datadenascimento"])
 			Global.all_ba.append({"nome" + str(sn): info_ba}) #está a adicionar à variavel global teste todos os ba da base de dados
 			set_data(info_nome, info_ba, info_curso, info_turma, info_datadenascimento) #está a chamar a funcão set_data e a adioncar os dados à tabela
-			print(info_nome)
+			#print(info_nome)
 	pass # Replace with function body.
 	
 

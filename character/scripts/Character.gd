@@ -1,5 +1,4 @@
 extends CharacterBody2D
-
 var _state_machine
 #test comment
 @export_category("Variables")
@@ -57,3 +56,15 @@ func _on_pc_body_exited(body):
 	print("saiu")
 	Global.activate_e = false #Caso ele saia da colisão no PC o SPRITE_E desaparece
 
+
+
+func _on_area_npc_body_entered(body):
+	if Input.is_action_just_pressed("ui_accept"):
+		DialogueManager.show_example_dialogue_balloon(load("res://npc/scripts/main.dialogue"), "main")
+	print("entrou NPC")
+	pass # Replace with function body.
+
+
+func _on_area_npc_body_exited(body):
+	print("saiu NPC")
+	pass # Replace with function body.

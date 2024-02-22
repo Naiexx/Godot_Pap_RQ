@@ -59,6 +59,7 @@ offset_bottom = 282.0
 
 [node name="BaExistente" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 669.0
 offset_top = 257.0
 offset_right = 755.0
