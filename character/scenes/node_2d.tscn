@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://brjprsl7ft2sb"]
+[gd_scene load_steps=95 format=3 uid="uid://brjprsl7ft2sb"]
 
 [ext_resource type="Script" path="res://character/scripts/Character.gd" id="1_chouu"]
 [ext_resource type="Texture2D" uid="uid://hts4vbpfukmi" path="res://character/assets/Personagem_parado_frente_png.png" id="2_wy42f"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://cb0ctq2omtqbu" path="res://character/assets/Bob_16x16.png" id="17_4gxv0"]
 [ext_resource type="Script" path="res://terrain/scripts/Animated_e_pc.gd" id="17_11qih"]
 [ext_resource type="Script" path="res://npc/scripts/Npc.gd" id="17_icouo"]
+[ext_resource type="Script" path="res://character/scenes/QuadroTarefas.gd" id="18_itdbt"]
+[ext_resource type="PackedScene" uid="uid://cry3fipagbadx" path="res://control_2.tscn" id="19_8xng2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlb7i"]
 resource_name = "Interior"
@@ -4869,6 +4871,9 @@ size = Vector2(38, 22)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tt08w"]
 size = Vector2(21, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qfsu"]
+size = Vector2(52, 26)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1, 0)
 
@@ -4978,21 +4983,28 @@ position = Vector2(348.5, 389)
 shape = SubResource("RectangleShape2D_tt08w")
 disabled = true
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control2" parent="CanvasLayer2" instance=ExtResource("19_8xng2")]
+unique_name_in_owner = true
+visible = false
+
+[node name="QuadroTarefas" type="Area2D" parent="."]
+script = ExtResource("18_itdbt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuadroTarefas"]
+position = Vector2(320, 64)
+shape = SubResource("RectangleShape2D_1qfsu")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("16_2cnok")]
 unique_name_in_owner = true
 visible = false
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer2"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 127.0
-offset_bottom = 64.0
-
 [connection signal="body_entered" from="YSort/PC" to="YSort/Character" method="_on_pc_body_entered"]
 [connection signal="body_exited" from="YSort/PC" to="YSort/Character" method="_on_pc_body_exited"]
 [connection signal="body_entered" from="Npc/AreaNpc" to="YSort/Character" method="_on_area_npc_body_entered"]
 [connection signal="body_exited" from="Npc/AreaNpc" to="YSort/Character" method="_on_area_npc_body_exited"]
+[connection signal="body_entered" from="QuadroTarefas" to="YSort/Character" method="_on_quadro_tarefas_body_entered"]
+[connection signal="body_exited" from="QuadroTarefas" to="YSort/Character" method="_on_quadro_tarefas_body_exited"]

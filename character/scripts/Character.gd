@@ -15,9 +15,7 @@ var aparecer_dialogo = false
 func _ready() -> void:
 	_state_machine = _animtaion_tree["parameters/playback"]
 	
-func _on_dados_atualizados():
-	Global.botaoclicado = true
-	pass
+
 
 func _physics_process(_delta: float) -> void:
 	if aparecer_dialogo == true && Input.is_action_pressed("interaction_e"): #Caso ele esteje em contacto com o NPC e clique no E o dialogo vai aparecer
@@ -71,4 +69,15 @@ func _on_area_npc_body_entered(body):
 func _on_area_npc_body_exited(body):
 	aparecer_dialogo = false #Caso  ele entre em contacto com o NPC vai colocar essa variavel false
 	print("saiu NPC")
+	pass # Replace with function body.
+
+
+func _on_quadro_tarefas_body_entered(body):
+	print("entrou")
+	Global.activate_e2 = true
+	pass # Replace with function body.
+
+
+func _on_quadro_tarefas_body_exited(body):
+	Global.activate_e2 = false
 	pass # Replace with function body.

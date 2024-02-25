@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cry3fipagbadx"]
+
+[node name="Control2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -164.0
+offset_right = 131.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_right = 255.0
+offset_bottom = 63.0
+text = "elimina o armindo"
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 255.0
+offset_bottom = 142.0
+text = "edita o ba do armindo casca"
+
+[node name="Label3" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 163.0
+offset_right = 255.0
+offset_bottom = 235.0
+text = "muda a data de nasciemento"
+
+[node name="Label4" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 261.0
+offset_right = 256.0
+offset_bottom = 332.0
+text = "o naiex e gat"
