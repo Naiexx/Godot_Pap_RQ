@@ -16,11 +16,18 @@ func _process(delta):
 func _on_button_pressed():
 	var a = int(str(self.get_name()))#pega o numero da linna que ele clicou
 	a = a - 1 #temos que colocar menos um porque um array começa com 0
-	Global.database.delete_rows("aplicativo", "ba = '" + str(Global.all_ba[a]["nome" + str(a)])+ "'")#elimina na base de dados 
 	
-	Global.botaoclicado = true
-	print(Global.all_ba[a]["nome" + str(a)])#está a printar o ba que ele selecionou
+	
+	for i in range(4): # Faz um for até 3 pq começa no 0
+		#se a escolha for 2 que é = a eliminar e se o ba da tarefa for o mesmo da linha que ele clicou vai acontecer oq está dentro do if
+		if int(Global.tarefa_escolhida[i]) == 2 && Global.tarefa_nome_escolhido[i] == str(Global.all_ba[a]["nome" + str(a)]):
+			print("tarefa concluida")
+			Global.tarefas[i] = "" #Limpa a tarefa realizada do quadro de tarefas
+			break
 
+	print(Global.all_ba[a]["nome" + str(a)])#está a printar o ba que ele selecionou
+	Global.database.delete_rows("aplicativo", "ba = '" + str(Global.all_ba[a]["nome" + str(a)])+ "'")#elimina na base de dados  o ba selecionado
+	Global.botaoclicado = true
 
 func _on_button_2_pressed():
 	var a = int(str(self.get_name()))#pega o numero da linna que ele clicou

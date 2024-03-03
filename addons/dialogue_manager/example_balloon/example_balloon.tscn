@@ -141,6 +141,10 @@ theme_override_constants/separation = 2
 script = ExtResource("3_72ixx")
 response_template = NodePath("ResponseExample")
 
+[node name="GridContainer" type="GridContainer" parent="Balloon/Responses/ResponsesMenu"]
+layout_mode = 2
+columns = 2
+
 [node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
 layout_mode = 2
 text = "Response example"

@@ -10,14 +10,24 @@
 #- End the conversation => END
 #Nathan: For more information see the online documentation.
 
-
-César Augusto: D.Afonso Henriques foi o primeiro rei de Portugal?
+do Global.randomizaPergunta() #Vai trocar o pergunta_random para outro número aleatorio
+César Augusto: Olá tenho uma pergunta para ti, caso acertes recebes uma tarefa
+César Augusto: {{Global.perguntas[Global.pergunta_random]}} 
 - Sim.  
-	César Augusto: Acertaste!!
+	if Global.respostas[Global.pergunta_random] == "v": 
+		César Augusto: Acertaste!! 
+		César Augusto: Vai ao quadro de tarefas para ver a tarefa recebida
+		do Global.adicionarTarefa() # adiciona uma tarefa ao quadro de tarefas
+	else:
+		César Augusto: Erraste!!
 - Não.
-	César Augusto: Erraste!! 
-	=> main
+	if Global.respostas[Global.pergunta_random] == "f": 
+		César Augusto: Acertaste!! 
+		César Augusto: Vai ao quadro de tarefas para ver a tarefa recebida
+		do Global.adicionarTarefa() # adiciona uma tarefa ao quadro de tarefas
+	else:
+		César Augusto: Erraste!!
 	
-César Augusto: Bye
+César Augusto: Adeus
 
 => END

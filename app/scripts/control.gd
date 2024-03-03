@@ -36,6 +36,7 @@ func _ready():
 			info_curso = "" + row["curso"]
 			info_datadenascimento = "" + str(row["datadenascimento"])
 			Global.all_ba.append({"nome" + str(sn): info_ba}) #está a adicionar à variavel global teste todos os ba da base de dados
+			Global.all_nome.append({"nome" + str(sn): info_nome}) #está a adicionar à variavel global nomes todos os nomes da base de dados			
 			set_data(info_nome, info_ba, info_curso, info_turma, info_datadenascimento) #está a chamar a funcão set_data e a adioncar os dados à tabela
 			#print(info_nome)
 	pass # Replace with function body.
@@ -106,11 +107,20 @@ func _on_salvar_button_button_down():
 	if not registroExiste: #se não existir nenhum ba com esse valor vai inserir na base de dados
 		Global.database.insert_row("aplicativo", data)
 		Global.botaoclicado = true
+		
+		for i in range(4): # Faz um for até 3 pq começa no 0
+			#se a escolha for 1 que é = a adicionar e se o nome for igual ao da tarefa vai acontecer oq está dentro do if
+			if int(Global.tarefa_escolhida[i]) == 1 && Global.tarefa_nome_escolhido[i] == str($NomeLineEdit.text):
+				print("tarefa concluida")
+				Global.tarefas[i] = "" #Limpa a tarefa realizada do quadro de tarefas
+				break
+		
 		$NomeLineEdit.text = ""
 		%CursoOptionButton.text = ""
 		$BaLineEdit.text = ""
 		$TurmaOptionButton.text = ""
 		$DataLineEdit.text = ""
+		
 		
 	
 	

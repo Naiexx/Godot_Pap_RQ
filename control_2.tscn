@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cry3fipagbadx"]
+[gd_scene load_steps=2 format=3 uid="uid://cry3fipagbadx"]
+
+[ext_resource type="Script" path="res://control_2.gd" id="1_b72e8"]
 
 [node name="Control2" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_b72e8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -23,21 +26,24 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.235294, 0.235294, 0.235294, 1)
 
-[node name="Label" type="Label" parent="ColorRect"]
+[node name="1" type="Label" parent="ColorRect"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 255.0
 offset_bottom = 63.0
 text = "elimina o armindo"
 autowrap_mode = 3
 
-[node name="Label2" type="Label" parent="ColorRect"]
+[node name="2" type="Label" parent="ColorRect"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_top = 71.0
 offset_right = 255.0
 offset_bottom = 142.0
 text = "edita o ba do armindo casca"
 
-[node name="Label3" type="Label" parent="ColorRect"]
+[node name="3" type="Label" parent="ColorRect"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 2.0
 offset_top = 163.0
@@ -45,7 +51,8 @@ offset_right = 255.0
 offset_bottom = 235.0
 text = "muda a data de nasciemento"
 
-[node name="Label4" type="Label" parent="ColorRect"]
+[node name="4" type="Label" parent="ColorRect"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 1.0
 offset_top = 261.0

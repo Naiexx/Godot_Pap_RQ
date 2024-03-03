@@ -4872,7 +4872,7 @@ size = Vector2(38, 22)
 size = Vector2(21, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qfsu"]
-size = Vector2(52, 26)
+size = Vector2(52, 10)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1, 0)
@@ -4993,7 +4993,7 @@ visible = false
 script = ExtResource("18_itdbt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="QuadroTarefas"]
-position = Vector2(320, 64)
+position = Vector2(319, 70)
 shape = SubResource("RectangleShape2D_1qfsu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

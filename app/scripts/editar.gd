@@ -2,6 +2,7 @@ extends Control
 
 var add = false
 var badomesmo = ""
+var cursodomemso = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,7 @@ func _process(delta):
 		%TurmaOptionButt2on.text = Global.info_turma2
 		%CurosOptionButton2.text = Global.info_curso2
 		badomesmo = Global.info_ba2 #para guardar o ba que ele ja tinha antes de começar a editar
+		cursodomemso = Global.info_curso2 #para guardar o curso que ele ja tinha antes de começar a editar
 		add = true
 	pass
 
@@ -42,6 +44,13 @@ func _on_atualizar_button_pressed():
 		visible = false
 		Global.botaoclicado = true
 		add = false
+		
+		for i in range(4): # Faz um for até 3 pq começa no 0
+		#se a escolha for 3 que é = a editar e se o ba da tarefa for o mesmo do ba que ele está a editar e se ele tiver atualizado o curso vai acontecer oq está dentro do if
+			if int(Global.tarefa_escolhida[i]) == 3 && Global.tarefa_nome_escolhido[i] == badomesmo && %CurosOptionButton2.text != cursodomemso:
+				print("tarefa concluida")
+				Global.tarefas[i] = "" #Limpa a tarefa realizada do quadro de tarefas
+				break
 		
 	pass # Replace with function body.
 	
