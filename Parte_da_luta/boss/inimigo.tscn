@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ufptu7cvu1wi"]
 
-[ext_resource type="Script" path="res://Parte_da _luta/boss/inimigo.gd" id="1_aq321"]
-[ext_resource type="PackedScene" uid="uid://bttjgn7j5o56p" path="res://Parte_da _luta/Armas/tesoura.tscn" id="2_y23va"]
+[ext_resource type="Script" path="res://Parte_da_luta/boss/inimigo.gd" id="1_aq321"]
+[ext_resource type="PackedScene" uid="uid://bttjgn7j5o56p" path="res://Parte_da_luta/Armas/tesoura.tscn" id="2_y23va"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jug4o"]
 size = Vector2(40, 40)

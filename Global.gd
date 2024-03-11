@@ -115,3 +115,8 @@ func adicionarTarefa():
 			break # Dá break ao for
 	pass 
 	
+func carregarCena():
+	# Carrega a próxima cena para onde queremos transicionar
+	var cena_transicao = preload("res://Parte_da_luta/boss/luta.tscn")  
+	# Transição suave de cena
+	get_tree().change_scene(cena_transicao)

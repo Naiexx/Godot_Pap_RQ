@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bttjgn7j5o56p"]
 
-[ext_resource type="Script" path="res://Parte_da _luta/Armas/tesoura.gd" id="1_aca53"]
+[ext_resource type="Script" path="res://Parte_da_luta/Armas/tesoura.gd" id="1_aca53"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dstun"]
 size = Vector2(20, 20)

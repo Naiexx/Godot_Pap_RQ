@@ -13,5 +13,3 @@ func _on_body_entered(_body):
 	
 	if _body.is_in_group("inimigoooo"):# se algo que entrar nesta area for de grupo inimgo a barra de progresso ira descer
 		Global.vidaboss-= 1
-		print("ada")
-

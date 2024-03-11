@@ -9,6 +9,8 @@
 #- Start again => start
 #- End the conversation => END
 #Nathan: For more information see the online documentation.
+#do variavel = 100
+#chevon: you have {{variavel}}
 
 do Global.randomizaPergunta() #Vai trocar o pergunta_random para outro número aleatorio
 César Augusto: Olá tenho uma pergunta para ti, caso acertes recebes uma tarefa
@@ -27,7 +29,7 @@ César Augusto: {{Global.perguntas[Global.pergunta_random]}}
 		do Global.adicionarTarefa() # adiciona uma tarefa ao quadro de tarefas
 	else:
 		César Augusto: Erraste!!
-	
+		do Global.carregarCena()
 César Augusto: Adeus
 
 => END
