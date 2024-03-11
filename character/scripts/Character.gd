@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var _state_machine
 
-
+var aparecer_dialogo = false
 
 @export_category("Variables")
 #@export var _move_speed: float = 150.0
@@ -18,6 +18,9 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if aparecer_dialogo == true && Input.is_action_pressed("interaction_e"): #Caso ele esteje em contacto com o NPC e clique no E o dialogo vai aparecer
+		DialogueManager.show_example_dialogue_balloon(load("res://npc/scripts/main.dialogue"), "main") #Faz o Dialogo aparecer
+		aparecer_dialogo = false
 	_move()
 	_animate()
 	move_and_slide()
@@ -46,5 +49,35 @@ func _animate() -> void:
 		return
 	_state_machine.travel("idle") #Se for 0 ele esta parado
 
+func _on_pc_body_entered(body):
+	print("entrou")
+	Global.activate_e = true #Caso ele entre na colisão no PC o SPRITE_E aparece
 
 
+func _on_pc_body_exited(body):
+	print("saiu")
+	Global.activate_e = false #Caso ele saia da colisão no PC o SPRITE_E desaparece
+
+
+
+func _on_area_npc_body_entered(body):
+	aparecer_dialogo = true #Caso  ele entre em contacto com o NPC vai colocar essa variavel true
+	print("entrou NPC")
+	pass # Replace with function body.
+
+
+func _on_area_npc_body_exited(body):
+	aparecer_dialogo = false #Caso  ele entre em contacto com o NPC vai colocar essa variavel false
+	print("saiu NPC")
+	pass # Replace with function body.
+
+
+func _on_quadro_tarefas_body_entered(body):
+	print("entrou")
+	Global.activate_e2 = true
+	pass # Replace with function body.
+
+
+func _on_quadro_tarefas_body_exited(body):
+	Global.activate_e2 = false
+	pass # Replace with function body.

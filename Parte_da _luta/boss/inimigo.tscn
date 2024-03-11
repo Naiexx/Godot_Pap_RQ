@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=3 uid="uid://ufptu7cvu1wi"]
+
+[ext_resource type="Script" path="res://Parte_da _luta/boss/inimigo.gd" id="1_aq321"]
+[ext_resource type="PackedScene" uid="uid://bttjgn7j5o56p" path="res://Parte_da _luta/Armas/tesoura.tscn" id="2_y23va"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jug4o"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4ldp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sigy7"]
+size = Vector2(350, 350)
+
+[sub_resource type="Animation" id="Animation_6lajr"]
+resource_name = "Eliminaste_JJ"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_t0puv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_32xt8"]
+_data = {
+"Eliminaste_JJ": SubResource("Animation_6lajr"),
+"RESET": SubResource("Animation_t0puv")
+}
+
+[node name="Inimigo" type="CharacterBody2D" groups=["inimigoooo"]]
+light_mask = 2
+script = ExtResource("1_aq321")
+tesoura_node = ExtResource("2_y23va")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_jug4o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m4ldp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["inimigo"]]
+shape = SubResource("RectangleShape2D_sigy7")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+offset_left = 578.0
+offset_top = 664.0
+offset_right = 778.0
+offset_bottom = 691.0
+max_value = 10.0
+step = 1.0
+value = 10.0
+
+[node name="Label" type="Label" parent="UI"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Eliminaste o JJ"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_32xt8")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

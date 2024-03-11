@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cry3fipagbadx"]
 
-[ext_resource type="Script" path="res://control_2.gd" id="1_b72e8"]
+[ext_resource type="Script" path="res://app/Quadro_Tarefas/control_2.gd" id="1_b72e8"]
 
 [node name="Control2" type="Control"]
 layout_mode = 3

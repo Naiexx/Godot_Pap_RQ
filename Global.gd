@@ -1,5 +1,7 @@
 extends Node
 
+var vidaboss = 10
+
 var database : SQLite
 
 var botaoclicado = false
