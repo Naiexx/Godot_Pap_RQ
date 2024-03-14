@@ -2,7 +2,7 @@ extends CharacterBody2D
 var _state_machine
 
 @export var tesoura_node : PackedScene
-
+@onready var progress_bar2 = $UI/ProgressBar
 @export_category("Variables")
 #@export var _move_speed: float = 150.0
 
@@ -12,6 +12,19 @@ var _state_machine
 @export_category("Objects")
 @export var _animtaion_tree: AnimationTree = null
 
+var healt2 : = 10:
+	set(value):
+		healt2 = Global.vidaplayer
+		progress_bar2.value = healt2 #Guarda a vida do boss na barra de progresso
+
+func take_damage2(): # Tira vida ao boss
+	progress_bar2.value = Global.vidaplayer
+	if Global.vidaplayer <= 0: # caso a vida do boss chegue ao fim a barra de progresso e o inimgo desaparecem e aparece uma animaçao
+			progress_bar2.visible = false
+			$".".visible = false
+			$UI/Label.visible = true
+			get_tree().change_scene_to_file("res://character/scenes/node_2d.tscn")
+
 func _ready() -> void:
 	_state_machine = _animtaion_tree["parameters/playback"]
 
@@ -19,6 +32,7 @@ func _physics_process(_delta: float) -> void:
 	_move()
 	_animate()
 	move_and_slide()
+	take_damage2()
 
 func _move() -> void:
 	var _direction: Vector2 = Vector2(

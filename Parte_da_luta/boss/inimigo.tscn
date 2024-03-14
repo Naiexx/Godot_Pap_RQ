@@ -1,15 +1,16 @@
 [gd_scene load_steps=9 format=3 uid="uid://ufptu7cvu1wi"]
 
 [ext_resource type="Script" path="res://Parte_da_luta/boss/inimigo.gd" id="1_aq321"]
-[ext_resource type="PackedScene" uid="uid://bttjgn7j5o56p" path="res://Parte_da_luta/Armas/tesoura.tscn" id="2_y23va"]
+[ext_resource type="PackedScene" uid="uid://dwieergvsbxdo" path="res://Parte_da_luta/Armas/tesoura_2.tscn" id="2_qy0wh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jug4o"]
 size = Vector2(40, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4ldp"]
+size = Vector2(40, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sigy7"]
-size = Vector2(350, 350)
+size = Vector2(750, 700)
 
 [sub_resource type="Animation" id="Animation_6lajr"]
 resource_name = "Eliminaste_JJ"
@@ -65,7 +66,7 @@ _data = {
 [node name="Inimigo" type="CharacterBody2D" groups=["inimigoooo"]]
 light_mask = 2
 script = ExtResource("1_aq321")
-tesoura_node = ExtResource("2_y23va")
+tesoura_node = ExtResource("2_qy0wh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_jug4o")
@@ -81,12 +82,11 @@ shape = SubResource("RectangleShape2D_sigy7")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="UI"]
-visible = false
 custom_minimum_size = Vector2(200, 0)
 offset_left = 578.0
-offset_top = 664.0
+offset_top = 619.0
 offset_right = 778.0
-offset_bottom = 691.0
+offset_bottom = 646.0
 max_value = 10.0
 step = 1.0
 value = 10.0

@@ -1,5 +1,7 @@
 extends Node
 
+var vidaplayer = 10
+
 var vidaboss = 10
 
 var database : SQLite
@@ -117,6 +119,6 @@ func adicionarTarefa():
 	
 func carregarCena():
 	# Carrega a próxima cena para onde queremos transicionar
-	var cena_transicao = preload("res://Parte_da_luta/boss/luta.tscn")  
+	#var cena_transicao = load("res://Parte_da_luta/boss/luta.tscn")  
 	# Transição suave de cena
-	get_tree().change_scene(cena_transicao)
+	get_tree().change_scene_to_file("res://Parte_da_luta/boss/luta.tscn")

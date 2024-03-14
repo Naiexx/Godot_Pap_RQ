@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwieergvsbxdo"]
+
+[ext_resource type="Script" path="res://Parte_da_luta/Armas/tesoura2.gd" id="1_81bpa"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ad21b"]
+size = Vector2(20, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y7jv"]
+
+[node name="tesoura2" type="Area2D"]
+script = ExtResource("1_81bpa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.937255, 0.0941176, 0, 1)
+texture = SubResource("PlaceholderTexture2D_ad21b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1y7jv")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
