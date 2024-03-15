@@ -12,6 +12,11 @@ var _state_machine
 @export_category("Objects")
 @export var _animtaion_tree: AnimationTree = null
 
+var shoot_timer
+var can_shoot = true
+var time_since_last_shot = 0.0
+var shoot_interval = 2.0
+
 var healt2 : = 10:
 	set(value):
 		healt2 = Global.vidaplayer
@@ -27,12 +32,21 @@ func take_damage2(): # Tira vida ao boss
 
 func _ready() -> void:
 	_state_machine = _animtaion_tree["parameters/playback"]
+	 # Inicializa o timer
+	shoot_timer = Timer.new()
+	# Define o intervalo do timer como 2 segundos
+	shoot_timer.wait_time = shoot_interval
+	# Conecta o sinal 'timeout' do timer para a função _on_ShootTimer_timeout
+	#shoot_timer.connect("timeout", self, "_on_ShootTimer_timeout")
+	# Adiciona o timer como filho deste nó para que ele seja ativado corretamente
+	add_child(shoot_timer)
 
 func _physics_process(_delta: float) -> void:
 	_move()
 	_animate()
 	move_and_slide()
 	take_damage2()
+
 
 func _move() -> void:
 	var _direction: Vector2 = Vector2(
@@ -66,9 +80,17 @@ func shoot():
 	
 	get_tree().current_scene.call_deferred("add_child",tesoura)# faz o sprite aparecer na tela
 	
+func _on_ShootTimer_timeout():
+	can_shoot = true
 
 func _input(event):
 	if event.is_action_pressed("atirar tesoura"):
-		shoot()
+		var mouse_event = event as InputEventMouseButton
+		if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT:
+			if can_shoot:
+				shoot()
+				can_shoot = false
+				shoot_timer.start()
+
 
 

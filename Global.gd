@@ -79,17 +79,53 @@ func randomizarTarefa():
 	var nome = nomesAleatorios[nome_random]# esta a guardar à variavel um nome aleatorio
 	var ba = Global.all_ba[ba_random]["nome" + str(ba_random)] # esta a guardar à variavel um ba aleatorio
 	var numero_aleatorio = randi_range(1, 3) #randomiza um numero de 1 a 3
-	var tarefa = ""
+	var tarefa = "" 
+	var tarefaSelecionada = ""
+	var BaIgual = false
 	if numero_aleatorio == 1:
+		while tarefa == "": # Loop enquanto a variável tarefa for = a ""
+			for i in range(4): #Este for vai verificar se o ba aleatorio é igual a algum ba de uma tarefa
+				if nome == Global.tarefa_nome_escolhido[i]:
+					nome_random = randi() % all_ba.size()
+					nome = nomesAleatorios[nome_random]
+					BaIgual = true
+					print("randomizou")
+					#caso seja igual a um ba de uma tarefa vai randomizar outro ba
+			if BaIgual == false: #caso nao exista nenhum ba igual adiciona a tarefa
+				tarefa = "Adiciona um registo com o nome " + nome + "!"
+				print("adicionou tarefaaaaaa")
+			BaIgual = false
 		tarefa = "Adiciona um registo com o nome " + nome + "!"
 		Global.escolhida_tarefa = 1
 		Global.nome_tarefa = nome
 	if numero_aleatorio == 2:
-		tarefa = "Elimina o registo com o ba " + ba + "!"
+		while tarefa == "": # Loop enquanto a variável tarefa for = a ""
+			for i in range(4): #Este for vai verificar se o ba aleatorio é igual a algum ba de uma tarefa
+				if ba == Global.tarefa_nome_escolhido[i]:
+					ba_random = randi() % all_ba.size()
+					ba = Global.all_ba[ba_random]["nome" + str(ba_random)]
+					BaIgual = true
+					print("randomizou")
+					#caso seja igual a um ba de uma tarefa vai randomizar outro ba
+			if BaIgual == false: #caso nao exista nenhum ba igual adiciona a tarefa
+				tarefa = "Elimina o registo com o ba " + ba + "!"
+				print("adicionou tarefaaaaaa")
+			BaIgual = false
 		Global.escolhida_tarefa = 2
 		Global.nome_tarefa = ba
 	if numero_aleatorio == 3:
-		tarefa = "Edita o curso do registo do ba " + ba + "!"
+		while tarefa == "": # Loop enquanto a variável tarefa for = a ""
+			for i in range(4): #Este for vai verificar se o ba aleatorio é igual a algum ba de uma tarefa
+				if ba == Global.tarefa_nome_escolhido[i]:
+					ba_random = randi() % all_ba.size()
+					ba = Global.all_ba[ba_random]["nome" + str(ba_random)]
+					BaIgual = true
+					print("randomizou")
+					#caso seja igual a um ba de uma tarefa vai randomizar outro ba
+			if BaIgual == false: #caso nao exista nenhum ba igual adiciona a tarefa
+				tarefa = "Edita o registo com o ba " + ba + "!"
+				print("adicionou tarefaaaaaa")
+			BaIgual = false
 		Global.escolhida_tarefa = 3
 		Global.nome_tarefa = ba
 	
