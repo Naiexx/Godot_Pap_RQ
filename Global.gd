@@ -64,6 +64,11 @@ var tarefas  = [
 	""
 ] 
 
+var edicoes = [
+	"o curso",
+	"a turma",
+]
+
 var pergunta_random = randi() % perguntas.size() #Randomiza a variavel consoante a quantidate de perguntas na varaivel perguntas
 
 
@@ -79,6 +84,7 @@ func randomizarTarefa():
 	var nome = nomesAleatorios[nome_random]# esta a guardar à variavel um nome aleatorio
 	var ba = Global.all_ba[ba_random]["nome" + str(ba_random)] # esta a guardar à variavel um ba aleatorio
 	var numero_aleatorio = randi_range(1, 3) #randomiza um numero de 1 a 3
+	var edicao_aleatorio = randi_range(0, 1) #randomiza um numero de 0 a 1
 	var tarefa = "" 
 	var tarefaSelecionada = ""
 	var BaIgual = false
@@ -123,21 +129,26 @@ func randomizarTarefa():
 					print("randomizou")
 					#caso seja igual a um ba de uma tarefa vai randomizar outro ba
 			if BaIgual == false: #caso nao exista nenhum ba igual adiciona a tarefa
-				tarefa = "Edita o registo com o ba " + ba + "!"
+				tarefa = "Edita "+ edicoes[edicao_aleatorio] + " do registo com o ba " + ba + "!"
 				print("adicionou tarefaaaaaa")
 			BaIgual = false
 		Global.escolhida_tarefa = 3
 		Global.nome_tarefa = ba
+		edicao_tarefa = edicoes[edicao_aleatorio]
 	
 	return tarefa #Vai retornar a tarefa randomizada
 	pass
 	
-var nome_tarefa; var escolhida_tarefa
+var nome_tarefa; var escolhida_tarefa; var edicao_tarefa
 var tarefa_nome_escolhido = ["",
 	"",
 	"",
 	""]
 var tarefa_escolhida = ["",
+	"",
+	"",
+	""]
+var edicao_escolhida = ["",
 	"",
 	"",
 	""]
@@ -150,6 +161,7 @@ func adicionarTarefa():
 			tarefas[i] = randomizarTarefa()
 			Global.tarefa_nome_escolhido[i] = Global.nome_tarefa #Guarda à variavel o nome da tarefa adicionado
 			Global.tarefa_escolhida[i] = Global.escolhida_tarefa #Guarda à variavel o numero da tarefa adicionado
+			Global.edicao_escolhida[i] = Global.edicao_tarefa
 			break # Dá break ao for
 	pass 
 	

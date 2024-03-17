@@ -60,7 +60,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4ldp"]
-size = Vector2(55, 63)
+size = Vector2(38, 43)
 
 [sub_resource type="Animation" id="Animation_6lajr"]
 resource_name = "Eliminaste_JJ"
@@ -183,7 +183,7 @@ sprite_frames = SubResource("SpriteFrames_43q01")
 animation = &"correr"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 3.5)
+position = Vector2(3, 2.5)
 shape = SubResource("RectangleShape2D_m4ldp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

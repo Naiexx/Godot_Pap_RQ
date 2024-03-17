@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://gqx3pbthin7n"]
+[gd_scene load_steps=12 format=3 uid="uid://gqx3pbthin7n"]
 
 [ext_resource type="Script" path="res://app/scripts/control.gd" id="1_f7aqv"]
 [ext_resource type="Script" path="res://app/scripts/OptionButton.gd" id="2_v3822"]
 [ext_resource type="Script" path="res://app/scripts/TurmaOptionButton.gd" id="3_vn7si"]
 [ext_resource type="PackedScene" uid="uid://dk52prf3jtqkr" path="res://app/scenes/editar.tscn" id="4_n708w"]
+[ext_resource type="Texture2D" uid="uid://dlagqhx707g4u" path="res://app/assets/x2-removebg-preview.png" id="5_2vkbo"]
+[ext_resource type="Texture2D" uid="uid://he6rarqxenbe" path="res://app/assets/app tela.png" id="6_qeu3p"]
 
 [sub_resource type="Theme" id="Theme_7shuv"]
 Label/colors/font_color = Color(1, 0.258824, 0.2, 1)
@@ -63,6 +65,17 @@ offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f7aqv")
+
+[node name="Desfocar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1282.0
+offset_bottom = 729.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="AppTela" type="Sprite2D" parent="."]
+position = Vector2(628.389, 433.5)
+scale = Vector2(1.33377, 1.33472)
+texture = ExtResource("6_qeu3p")
 
 [node name="BackGround" type="ColorRect" parent="."]
 layout_mode = 1
@@ -193,14 +206,6 @@ offset_bottom = 186.0
 text = "Data de Nascimento
 "
 
-[node name="PesquisaLineEdit" type="LineEdit" parent="."]
-layout_mode = 0
-offset_left = 313.0
-offset_top = 120.0
-offset_right = 1070.0
-offset_bottom = 151.0
-placeholder_text = "Termo a procurar"
-
 [node name="BaLineEdit" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 311.0
@@ -281,6 +286,20 @@ text = "criar"
 unique_name_in_owner = true
 visible = false
 
+[node name="X2-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(1074.69, 127.688)
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("5_2vkbo")
+
+[node name="Button_fechar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1057.0
+offset_top = 110.0
+offset_right = 1091.0
+offset_bottom = 144.0
+theme_type_variation = &"FlatButton"
+
 [connection signal="text_changed" from="BaLineEdit" to="." method="_on_ba_line_edit_text_changed"]
 [connection signal="button_down" from="SalvarButton" to="." method="_on_salvar_button_button_down"]
 [connection signal="button_down" from="CriarButton" to="." method="_on_criar_button_button_down"]
+[connection signal="pressed" from="Button_fechar" to="." method="_on_button_fechar_pressed"]

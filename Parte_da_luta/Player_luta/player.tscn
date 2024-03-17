@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c5ohgnsicywxn" path="res://character/assets/Personagem_andar_costas.png" id="9_a5e1y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnmk0"]
-size = Vector2(39, 7)
+size = Vector2(71, 67)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e7efx"]
 atlas = ExtResource("2_wuv4i")
@@ -551,7 +551,7 @@ _animtaion_tree = NodePath("AnimationTree")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 show_behind_parent = true
-position = Vector2(-0.5, -3.5)
+position = Vector2(3.5, -33.5)
 shape = SubResource("RectangleShape2D_nnmk0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -133,3 +133,9 @@ func _on_ba_line_edit_text_changed(new_text):
 	pass # Replace with function body.
 
 
+
+
+func _on_button_fechar_pressed():
+	Global._move_speed = 150 # volta a dar a velocidade ao personagem
+	visible = false
+	pass # Replace with function body.
