@@ -22,6 +22,7 @@ César Augusto: {{Global.perguntas[Global.pergunta_random]}}
 		do Global.adicionarTarefa() # adiciona uma tarefa ao quadro de tarefas
 	else:
 		César Augusto: Erraste!!
+		do Global.carregarCena()
 - Não.
 	if Global.respostas[Global.pergunta_random] == "f": 
 		César Augusto: Acertaste!! 

@@ -1,9 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://bttjgn7j5o56p"]
+[gd_scene load_steps=9 format=3 uid="uid://bttjgn7j5o56p"]
 
 [ext_resource type="Script" path="res://Parte_da_luta/Armas/tesoura.gd" id="1_aca53"]
+[ext_resource type="Texture2D" uid="uid://bi4nmgwpgdayn" path="res://Parte_da_luta/Armas/tesoura-removebg-preview (3).png" id="2_iia02"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dstun"]
-size = Vector2(20, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_a10jn"]
+atlas = ExtResource("2_iia02")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81dfj"]
+atlas = ExtResource("2_iia02")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1bwx"]
+atlas = ExtResource("2_iia02")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow04s"]
+atlas = ExtResource("2_iia02")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w6qvl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a10jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81dfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1bwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow04s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tippe"]
 size = Vector2(29, 32)
@@ -13,10 +47,10 @@ light_mask = 2
 visibility_layer = 2
 script = ExtResource("1_aca53")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 0.407843, 1)
-self_modulate = Color(0.556863, 0, 0, 1)
-texture = SubResource("PlaceholderTexture2D_dstun")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w6qvl")
+autoplay = "default"
+frame_progress = 0.868959
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
