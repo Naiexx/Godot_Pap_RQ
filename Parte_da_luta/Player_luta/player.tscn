@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c5ohgnsicywxn" path="res://character/assets/Personagem_andar_costas.png" id="9_a5e1y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnmk0"]
-size = Vector2(71, 67)
+size = Vector2(42, 49)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e7efx"]
 atlas = ExtResource("2_wuv4i")
@@ -545,13 +545,14 @@ states/walk/position = Vector2(579, 134)
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("_animtaion_tree") groups=["character"]]
 position = Vector2(0, -1)
+collision_mask = 2
 script = ExtResource("1_fscgy")
 tesoura_node = ExtResource("2_3dts3")
 _animtaion_tree = NodePath("AnimationTree")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 show_behind_parent = true
-position = Vector2(3.5, -33.5)
+position = Vector2(0, -23.5)
 shape = SubResource("RectangleShape2D_nnmk0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -573,10 +574,10 @@ parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="ProgressBar" type="ProgressBar" parent="UI" groups=["player2"]]
 custom_minimum_size = Vector2(200, 0)
-offset_left = 45.0
-offset_top = 100.0
-offset_right = 245.0
-offset_bottom = 127.0
+offset_left = 85.0
+offset_top = 83.0
+offset_right = 285.0
+offset_bottom = 110.0
 max_value = 10.0
 step = 1.0
 value = 10.0

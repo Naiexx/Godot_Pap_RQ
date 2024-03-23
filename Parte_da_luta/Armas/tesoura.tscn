@@ -9,6 +9,8 @@ size = Vector2(20, 20)
 size = Vector2(29, 32)
 
 [node name="tesoura" type="Area2D" groups=["inimigoo"]]
+light_mask = 2
+visibility_layer = 2
 script = ExtResource("1_aca53")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
