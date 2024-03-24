@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bhtkq8csoovrm" path="res://character/assets/Personagem_andar_lado_esquerda.png" id="7_avy23"]
 [ext_resource type="Texture2D" uid="uid://v3l3grawahie" path="res://character/assets/Personagem_andar_lado_direita.png" id="8_rxtbl"]
 [ext_resource type="Texture2D" uid="uid://c5ohgnsicywxn" path="res://character/assets/Personagem_andar_costas.png" id="9_a5e1y"]
-[ext_resource type="Texture2D" uid="uid://3hb2y45hdxpk" path="res://barra.png" id="10_s0cr2"]
+[ext_resource type="Texture2D" uid="uid://3hb2y45hdxpk" path="res://Parte_da_luta/barra de vida/barra.png" id="10_s0cr2"]
 [ext_resource type="Texture2D" uid="uid://bjwkr5ruc8mqk" path="res://Parte_da_luta/Armas/tesoura-removebg-preview.png" id="11_0jcew"]
 [ext_resource type="Script" path="res://Parte_da_luta/Player_luta/Hand.gd" id="11_6aufk"]
-[ext_resource type="Texture2D" uid="uid://cslsmltgoy5r8" path="res://vida.png" id="11_wepnq"]
+[ext_resource type="Texture2D" uid="uid://cslsmltgoy5r8" path="res://Parte_da_luta/barra de vida/vida.png" id="11_wepnq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnmk0"]
 size = Vector2(42, 49)

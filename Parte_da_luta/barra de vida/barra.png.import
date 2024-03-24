@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3hb2y45hdxpk"
-path="res://.godot/imported/barra.png-1566b9d9bc0a9ec422165000e1c585b9.ctex"
+path="res://.godot/imported/barra.png-e1e0439cc034e970670e3ce750f50cda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://barra.png"
-dest_files=["res://.godot/imported/barra.png-1566b9d9bc0a9ec422165000e1c585b9.ctex"]
+source_file="res://Parte_da_luta/barra de vida/barra.png"
+dest_files=["res://.godot/imported/barra.png-e1e0439cc034e970670e3ce750f50cda.ctex"]
 
 [params]
 

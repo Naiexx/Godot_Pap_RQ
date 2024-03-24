@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Parte_da_luta/boss/inimigo.gd" id="1_aq321"]
 [ext_resource type="PackedScene" uid="uid://dwieergvsbxdo" path="res://Parte_da_luta/Armas/tesoura_2.tscn" id="2_qy0wh"]
 [ext_resource type="Texture2D" uid="uid://cpb8qe3difncq" path="res://Parte_da_luta/boss/PigBossAllAnimations (1).png" id="3_o8uko"]
-[ext_resource type="Texture2D" uid="uid://3hb2y45hdxpk" path="res://barra.png" id="4_vi0wu"]
-[ext_resource type="Texture2D" uid="uid://cslsmltgoy5r8" path="res://vida.png" id="5_sdw65"]
+[ext_resource type="Texture2D" uid="uid://3hb2y45hdxpk" path="res://Parte_da_luta/barra de vida/barra.png" id="4_vi0wu"]
+[ext_resource type="Texture2D" uid="uid://cslsmltgoy5r8" path="res://Parte_da_luta/barra de vida/vida.png" id="5_sdw65"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r7sxx"]
 atlas = ExtResource("3_o8uko")
