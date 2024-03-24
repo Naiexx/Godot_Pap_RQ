@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cv5npshae7km3"]
+[gd_scene load_steps=67 format=3 uid="uid://cv5npshae7km3"]
 
 [ext_resource type="Script" path="res://Parte_da_luta/Player_luta/player.gd" id="1_fscgy"]
 [ext_resource type="PackedScene" uid="uid://bttjgn7j5o56p" path="res://Parte_da_luta/Armas/tesoura.tscn" id="2_3dts3"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bhtkq8csoovrm" path="res://character/assets/Personagem_andar_lado_esquerda.png" id="7_avy23"]
 [ext_resource type="Texture2D" uid="uid://v3l3grawahie" path="res://character/assets/Personagem_andar_lado_direita.png" id="8_rxtbl"]
 [ext_resource type="Texture2D" uid="uid://c5ohgnsicywxn" path="res://character/assets/Personagem_andar_costas.png" id="9_a5e1y"]
+[ext_resource type="Texture2D" uid="uid://3hb2y45hdxpk" path="res://barra.png" id="10_s0cr2"]
+[ext_resource type="Texture2D" uid="uid://bjwkr5ruc8mqk" path="res://Parte_da_luta/Armas/tesoura-removebg-preview.png" id="11_0jcew"]
+[ext_resource type="Script" path="res://Parte_da_luta/Player_luta/Hand.gd" id="11_6aufk"]
+[ext_resource type="Texture2D" uid="uid://cslsmltgoy5r8" path="res://vida.png" id="11_wepnq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnmk0"]
 size = Vector2(42, 49)
@@ -547,7 +551,6 @@ states/walk/position = Vector2(579, 134)
 position = Vector2(0, -1)
 collision_mask = 2
 script = ExtResource("1_fscgy")
-tesoura_node = ExtResource("2_3dts3")
 _animtaion_tree = NodePath("AnimationTree")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
@@ -556,7 +559,7 @@ position = Vector2(0, -23.5)
 shape = SubResource("RectangleShape2D_nnmk0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -38)
+position = Vector2(-1, -37)
 scale = Vector2(2.40625, 2.40625)
 sprite_frames = SubResource("SpriteFrames_am4qe")
 animation = &"idle_down"
@@ -570,9 +573,15 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_csglt")
+}
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="UI" groups=["player2"]]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 offset_left = 85.0
 offset_top = 83.0
@@ -590,7 +599,24 @@ offset_right = 716.0
 offset_bottom = 300.0
 text = "Morreste para o JJ"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_csglt")
-}
+[node name="Hand" type="Node2D" parent="."]
+script = ExtResource("11_6aufk")
+tesoura_node = ExtResource("2_3dts3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand"]
+position = Vector2(22, -8)
+rotation = -1.29154
+scale = Vector2(0.105079, 0.100159)
+texture = ExtResource("11_0jcew")
+offset = Vector2(20, 20)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -18.0
+offset_top = -78.0
+offset_right = 20.0
+offset_bottom = -41.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_under = ExtResource("10_s0cr2")
+texture_progress = ExtResource("11_wepnq")

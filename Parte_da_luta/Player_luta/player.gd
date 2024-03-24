@@ -1,8 +1,9 @@
 extends CharacterBody2D
 var _state_machine
 
-@export var tesoura_node : PackedScene
-@onready var progress_bar2 = $UI/ProgressBar
+@onready var hand: Node = get_node("Hand")
+#@export var tesoura_node : PackedScene
+@onready var progress_bar2 = $TextureProgressBar
 @export_category("Variables")
 #@export var _move_speed: float = 150.0
 
@@ -57,12 +58,14 @@ func _physics_process(_delta: float) -> void:
 	_animate()
 	move_and_slide()
 	take_damage2()
-	time_since_last_shot += _delta
-	if Input.is_action_just_pressed("atirar tesoura"):
-		if time_since_last_shot >= shoot_interval:
-			shoot()
-			time_since_last_shot = 0.0
-
+	
+	#time_since_last_shot += _delta
+	#if Input.is_action_just_pressed("atirar tesoura"):
+		#if time_since_last_shot >= shoot_interval:
+			
+			#shoot()
+			#time_since_last_shot = 0.0
+			
 
 func _move() -> void:
 	var _direction: Vector2 = Vector2(
@@ -88,13 +91,13 @@ func _animate() -> void:
 	_state_machine.travel("idle") #Se for 0 ele esta parado
 	
 
-func shoot():
-	var tesoura = tesoura_node.instantiate() # esta varaivel guarda a cena da tesoura
+#func shoot():
+	#var tesoura = tesoura_node.instantiate() # esta varaivel guarda a cena da tesoura
 	
-	tesoura.position = global_position
-	tesoura.direction = (get_global_mouse_position() - global_position).normalized() # o disparo ira dirigir se para a posiçao do rato
+	#tesoura.position = global_position
+	#tesoura.direction = (get_global_mouse_position() - global_position).normalized() # o disparo ira dirigir se para a posiçao do rato
 	
-	get_tree().current_scene.call_deferred("add_child",tesoura)# faz o sprite aparecer na tela
+	#get_tree().current_scene.call_deferred("add_child",tesoura)# faz o sprite aparecer na tela
 	
 
 #func _input(event):
