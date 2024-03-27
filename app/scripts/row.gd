@@ -23,6 +23,7 @@ func _on_button_pressed():
 		if int(Global.tarefa_escolhida[i]) == 2 && Global.tarefa_nome_escolhido[i] == str(Global.all_ba[a]["nome" + str(a)]):
 			print("tarefa concluida")
 			Global.tarefas[i] = "" #Limpa a tarefa realizada do quadro de tarefas
+			Global.aparecerTarefa_Realizada()
 			break
 
 	print(Global.all_ba[a]["nome" + str(a)])#está a printar o ba que ele selecionou

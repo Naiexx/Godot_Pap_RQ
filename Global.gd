@@ -10,6 +10,8 @@ var botaoclicado = false
 
 var activate_e = false
 
+var activate_e_quadro = false
+
 var activate_e2 = false
 
 var _move_speed: float = 150.0
@@ -164,6 +166,21 @@ func adicionarTarefa():
 			Global.edicao_escolhida[i] = Global.edicao_tarefa
 			break # Dá break ao for
 	pass 
+	
+var tarefa_realizada_visible = false
+func aparecerTarefa_Realizada():
+	Global.tarefa_realizada_visible = true
+	var timer : Timer = Timer.new()
+	add_child(timer)
+	timer.one_shot = true
+	timer.autostart = false
+	timer.wait_time = 3.0
+	timer.timeout.connect(_timer_Timeout)
+	timer.start()
+		
+		#get_tree().change_scene_to_file("res://character/scenes/node_2d.tscn")
+func _timer_Timeout():
+	Global.tarefa_realizada_visible = false
 	
 func carregarCena():
 	# Carrega a próxima cena para onde queremos transicionar

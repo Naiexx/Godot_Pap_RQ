@@ -21,6 +21,7 @@ func _physics_process(_delta: float) -> void:
 	if aparecer_dialogo == true && Input.is_action_pressed("interaction_e"): #Caso ele esteje em contacto com o NPC e clique no E o dialogo vai aparecer
 		DialogueManager.show_example_dialogue_balloon(load("res://npc/scripts/main.dialogue"), "main") #Faz o Dialogo aparecer
 		aparecer_dialogo = false
+		Global._move_speed = 0 # tira a velocidade do personagem
 	_move()
 	_animate()
 	move_and_slide()
@@ -74,10 +75,10 @@ func _on_area_npc_body_exited(body):
 
 func _on_quadro_tarefas_body_entered(body):
 	print("entrou")
-	Global.activate_e2 = true
+	Global.activate_e_quadro = true
 	pass # Replace with function body.
 
 
 func _on_quadro_tarefas_body_exited(body):
-	Global.activate_e2 = false
+	Global.activate_e_quadro  = false
 	pass # Replace with function body.

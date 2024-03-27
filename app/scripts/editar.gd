@@ -61,10 +61,12 @@ func tarefa_concluida():
 			if int(Global.tarefa_escolhida[i]) == 3 && Global.tarefa_nome_escolhido[i] == badomesmo && %CursoOptionButton2.text != cursodomemso && Global.edicao_escolhida[i] == "o curso":
 				print("tarefa concluida")
 				Global.tarefas[i] = "" #Limpa a tarefa realizada do quadro de tarefas
+				Global.aparecerTarefa_Realizada()
 				break
 			if int(Global.tarefa_escolhida[i]) == 3 && Global.tarefa_nome_escolhido[i] == badomesmo && %TurmaOptionButt2on.text != turmadomesmo && Global.edicao_escolhida[i] == "a turma":
 				print("tarefa concluida")
 				Global.tarefas[i] = "" #Limpa a tarefa realizada do quadro de tarefas
+				Global.aparecerTarefa_Realizada()				
 				break
 	
 func _input(event):

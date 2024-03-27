@@ -22,6 +22,7 @@ func set_data(nome, ba, turma, curso, datadenascimento):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
+	Global.all_ba.clear()
 	Global.database = SQLite.new()
 	Global.database.path="res://data.db" #
 	Global.database.open_db() #Abre a pasta de SQL onde sao armazenados os dados
@@ -113,6 +114,7 @@ func _on_salvar_button_button_down():
 			if int(Global.tarefa_escolhida[i]) == 1 && Global.tarefa_nome_escolhido[i] == str($NomeLineEdit.text):
 				print("tarefa concluida")
 				Global.tarefas[i] = "" #Limpa a tarefa realizada do quadro de tarefas
+				Global.aparecerTarefa_Realizada()
 				break
 		
 		$NomeLineEdit.text = ""

@@ -31,6 +31,7 @@ César Augusto: {{Global.perguntas[Global.pergunta_random]}}
 	else:
 		César Augusto: Erraste!!
 		do Global.carregarCena()
-César Augusto: Adeus
+César Augusto: Adeus 
+do Global._move_speed = 150
 
-=> END
+=> END 
