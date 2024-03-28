@@ -620,3 +620,8 @@ value = 10.0
 nine_patch_stretch = true
 texture_under = ExtResource("10_s0cr2")
 texture_progress = ExtResource("11_wepnq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

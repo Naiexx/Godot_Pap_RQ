@@ -29,6 +29,7 @@ func take_damage2(): # Tira vida ao boss
 	progress_bar2.value = Global.vidaplayer
 
 	if Global.vidaplayer <= 0: # caso a vida do boss chegue ao fim a barra de progresso e o inimgo desaparecem e aparece uma animaçao
+		
 		var timer : Timer = Timer.new()
 		add_child(timer)
 		timer.one_shot = true
@@ -39,10 +40,18 @@ func take_damage2(): # Tira vida ao boss
 		progress_bar2.visible = false
 		$".".visible = false
 		$UI/Label.visible = true
-		
+		$Timer.start
 		#get_tree().change_scene_to_file("res://character/scenes/node_2d.tscn")
+		
+
+func _on_timer_timeout():
+	get_tree().reload_current_scene()
+
+
 func _timer_Timeout():
 	get_tree().change_scene_to_file("res://character/scenes/node_2d.tscn")
+	Global.vidaboss = 10
+	Global.vidaplayer = 10
 
 func _ready() -> void:
 	_state_machine = _animtaion_tree["parameters/playback"]
@@ -103,3 +112,5 @@ func _animate() -> void:
 #func _input(event):
 	#if event.is_action_pressed("atirar tesoura"): 
 		#shoot()
+
+

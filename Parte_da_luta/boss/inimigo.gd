@@ -28,11 +28,16 @@ func take_damage(): # Tira vida ao boss
 		timer2.wait_time = 2.0
 		timer2.timeout.connect(_timer_Timeout)
 		timer2.start()
-		
+		$Timer.start
 		#get_tree().change_scene_to_file("res://character/scenes/node_2d.tscn")
+		
+func _on_timer_timeout():
+	get_tree().reload_current_scene()
 
 func _timer_Timeout():
 	get_tree().change_scene_to_file("res://character/scenes/node_2d.tscn")
+	Global.vidaboss = 10
+	Global.vidaplayer = 10
 	
 func _on_area_2d_body_entered(_body) -> void: # se algo colidar nesta area do grupo character irá receber um corpo
 	if _body.is_in_group("character"):
@@ -56,10 +61,10 @@ func shoot():
 
 func _physics_process(delta: float) -> void:
 	take_damage()
-	if Global.vidaplayer == 0:
-		queue_free()
-		
+	
+	
 	if _player_ref != null: # caso o personagem tenho recebido um corpo o inimigo irá segui-lo
+		$AnimatedSprite2D.play("correr")
 		var _direction: Vector2 = global_position.direction_to(_player_ref.global_position)
 		
 		if _direction.x > 0:
@@ -73,6 +78,13 @@ func _physics_process(delta: float) -> void:
 		if time_since_last_shot >= shoot_interval:
 			shoot()
 			time_since_last_shot = 0.0
+	
+	if Global.vidaplayer == 0:
+		_player_ref = null
+		$AnimatedSprite2D.play("idle")
+		Global.acabar = true
+
+
 
 
 

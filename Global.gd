@@ -1,5 +1,7 @@
 extends Node
 
+var acabar = false
+
 var vidaplayer = 10
 
 var vidaboss = 10

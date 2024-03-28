@@ -23,6 +23,7 @@ César Augusto: {{Global.perguntas[Global.pergunta_random]}}
 	else:
 		César Augusto: Erraste!!
 		do Global.carregarCena()
+		do Global._move_speed = 150
 - Não.
 	if Global.respostas[Global.pergunta_random] == "f": 
 		César Augusto: Acertaste!! 
@@ -31,6 +32,7 @@ César Augusto: {{Global.perguntas[Global.pergunta_random]}}
 	else:
 		César Augusto: Erraste!!
 		do Global.carregarCena()
+		do Global._move_speed = 150
 César Augusto: Adeus 
 do Global._move_speed = 150
 

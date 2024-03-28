@@ -33,8 +33,22 @@ func _physics_process(delta):
 	if player_ref:
 		# Define a posição da sprite ao lado do jogador
 		global_position = player_ref.global_position + Vector2(50, 0) # Ajuste a posição conforme necessário
+		
+		
 	time_since_last_shot += delta
-	if Input.is_action_just_pressed("atirar tesoura"):
-		if time_since_last_shot >= shoot_interval:
-			shoot()
-			time_since_last_shot = 0.0
+	if Global.acabar == false:
+		if Input.is_action_just_pressed("atirar tesoura"):
+			if time_since_last_shot >= shoot_interval:
+				shoot()
+				time_since_last_shot = 0.0
+	else:
+		var timer2 : Timer = Timer.new()
+		add_child(timer2)
+		timer2.one_shot = true
+		timer2.autostart = false
+		timer2.wait_time = 2.0
+		timer2.timeout.connect(_timer_Timeout)
+		timer2.start()
+		
+func _timer_Timeout():
+	Global.acabar = false

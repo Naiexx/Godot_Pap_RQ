@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ufptu7cvu1wi"]
+[gd_scene load_steps=26 format=3 uid="uid://ufptu7cvu1wi"]
 
 [ext_resource type="Script" path="res://Parte_da_luta/boss/inimigo.gd" id="1_aq321"]
 [ext_resource type="PackedScene" uid="uid://dwieergvsbxdo" path="res://Parte_da_luta/Armas/tesoura_2.tscn" id="2_qy0wh"]
@@ -29,6 +29,14 @@ region = Rect2(152, 168, 38, 28)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lgb7"]
 atlas = ExtResource("3_o8uko")
 region = Rect2(190, 168, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22xch"]
+atlas = ExtResource("3_o8uko")
+region = Rect2(0, 196, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkmmm"]
+atlas = ExtResource("3_o8uko")
+region = Rect2(418, 196, 38, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_utlv6"]
 atlas = ExtResource("3_o8uko")
@@ -70,6 +78,17 @@ animations = [{
 "loop": true,
 "name": &"correr",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22xch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkmmm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -241,11 +260,41 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_mllhs"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_32xt8"]
 _data = {
 "Eliminaste_JJ": SubResource("Animation_6lajr"),
 "RESET": SubResource("Animation_t0puv"),
-"correr": SubResource("Animation_4x7yj")
+"correr": SubResource("Animation_4x7yj"),
+"idle": SubResource("Animation_mllhs")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sigy7"]
@@ -271,7 +320,6 @@ shape = SubResource("RectangleShape2D_m4ldp")
 libraries = {
 "": SubResource("AnimationLibrary_32xt8")
 }
-autoplay = "correr"
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -317,5 +365,9 @@ nine_patch_stretch = true
 texture_under = ExtResource("4_vi0wu")
 texture_progress = ExtResource("5_sdw65")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
