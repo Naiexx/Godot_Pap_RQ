@@ -600,11 +600,12 @@ offset_bottom = 300.0
 text = "Morreste para o JJ"
 
 [node name="Hand" type="Node2D" parent="."]
+position = Vector2(0, 1)
 script = ExtResource("11_6aufk")
 tesoura_node = ExtResource("2_3dts3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
-position = Vector2(22, -8)
+position = Vector2(22, -12)
 rotation = -1.29154
 scale = Vector2(0.105079, 0.100159)
 texture = ExtResource("11_0jcew")

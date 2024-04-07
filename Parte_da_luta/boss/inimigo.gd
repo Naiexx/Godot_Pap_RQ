@@ -1,8 +1,12 @@
 extends CharacterBody2D
-var _player_ref = null
+
 @onready var progress_bar = $TextureProgressBar
 @onready var animation_player = owner.find_child("AnimationPlayer")
 @export var tesoura_node : PackedScene
+@onready var hand: Node = get_node("Node2D")
+@onready var sprite = $AnimatedSprite2D
+@onready var sprite2 = $Node2D/AnimatedSprite2D1
+
 
 var time_since_last_shot = 0.0
 var shoot_interval = 1.0
@@ -16,7 +20,7 @@ func take_damage(): # Tira vida ao boss
 	progress_bar.value = Global.vidaboss
 
 	if Global.vidaboss <= 0: # caso a vida do boss chegue ao fim a barra de progresso e o inimgo desaparecem e aparece uma animaçao
-		_player_ref = null
+		Global._player_ref = null
 		$AnimatedSprite2D.play("morte")
 		progress_bar.visible = false
 		#$".".visible = false
@@ -41,31 +45,45 @@ func _timer_Timeout():
 	
 func _on_area_2d_body_entered(_body) -> void: # se algo colidar nesta area do grupo character irá receber um corpo
 	if _body.is_in_group("character"):
-		_player_ref = _body
+		Global._player_ref = _body
 		
 
 func _on_area_2d_body_exited(_body) -> void: # se algo sair desta area do grupo character irá ficar sem corpo
 	if _body.is_in_group("character"):
-		_player_ref = null
+		Global._player_ref = null
 		
 		
 func get_direction():
-	return global_position.direction_to(_player_ref.global_position)
+	return global_position.direction_to(Global._player_ref.global_position)
+	
+func direcao():
+	var direction_to_player = (Global._player_ref.global_position - global_position).normalized()
+
+# Calcula a rotação da sprite para apontar na direção do jogador
+	var angle = atan2(direction_to_player.y, direction_to_player.x)
+	$Node2D/AnimatedSprite2D1.rotation = angle
+
+# Define a posição da sprite ao lado do jogador
+	#global_position = Global._player_ref.global_position + Vector2(50, 0) # Ajuste a posição conforme necessário
+	
+	
 	
 func shoot():
 	var tesoura = tesoura_node.instantiate() # esta varaivel guarda a cena da tesoura
 	
-	tesoura.position = global_position
-	tesoura.direction = global_position.direction_to(_player_ref.global_position)# o disparo ira dirigir se para a posiçao do rato
+	tesoura.position = sprite2.global_position
+	tesoura.direction = sprite2.global_position.direction_to(Global._player_ref.global_position)# o disparo ira dirigir se para a posiçao do rato
 	get_tree().current_scene.call_deferred("add_child",tesoura)# faz o sprite aparecer na tela
 
 func _physics_process(delta: float) -> void:
 	take_damage()
 	
 	
-	if _player_ref != null: # caso o personagem tenho recebido um corpo o inimigo irá segui-lo
+	if Global._player_ref != null: # caso o personagem tenho recebido um corpo o inimigo irá segui-lo
+		direcao()
 		$AnimatedSprite2D.play("correr")
-		var _direction: Vector2 = global_position.direction_to(_player_ref.global_position)
+		var _direction: Vector2 = global_position.direction_to(Global._player_ref.global_position)
+		
 		
 		if _direction.x > 0:
 			$AnimatedSprite2D.flip_h = true
@@ -80,7 +98,7 @@ func _physics_process(delta: float) -> void:
 			time_since_last_shot = 0.0
 	
 	if Global.vidaplayer == 0:
-		_player_ref = null
+		Global._player_ref = null
 		$AnimatedSprite2D.play("idle")
 		Global.acabar = true
 

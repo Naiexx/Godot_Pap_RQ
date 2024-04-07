@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://ufptu7cvu1wi"]
+[gd_scene load_steps=29 format=3 uid="uid://ufptu7cvu1wi"]
 
 [ext_resource type="Script" path="res://Parte_da_luta/boss/inimigo.gd" id="1_aq321"]
 [ext_resource type="PackedScene" uid="uid://dwieergvsbxdo" path="res://Parte_da_luta/Armas/tesoura_2.tscn" id="2_qy0wh"]
 [ext_resource type="Texture2D" uid="uid://cpb8qe3difncq" path="res://Parte_da_luta/boss/PigBossAllAnimations (1).png" id="3_o8uko"]
 [ext_resource type="Texture2D" uid="uid://3hb2y45hdxpk" path="res://Parte_da_luta/barra de vida/barra.png" id="4_vi0wu"]
 [ext_resource type="Texture2D" uid="uid://cslsmltgoy5r8" path="res://Parte_da_luta/barra de vida/vida.png" id="5_sdw65"]
+[ext_resource type="Texture2D" uid="uid://bx5udsp4qhko3" path="res://Elementstäbe.png" id="6_o53ad"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r7sxx"]
 atlas = ExtResource("3_o8uko")
@@ -300,6 +301,21 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sigy7"]
 size = Vector2(750, 700)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_28qqf"]
+atlas = ExtResource("6_o53ad")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tqrbf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28qqf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Inimigo" type="CharacterBody2D" groups=["inimigoooo"]]
 light_mask = 2
 collision_mask = 2
@@ -324,6 +340,7 @@ libraries = {
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["inimigo"]]
+position = Vector2(5, 1)
 shape = SubResource("RectangleShape2D_sigy7")
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -353,6 +370,14 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Eliminaste o JJ"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D1" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(25.5, 11)
+rotation = 1.65632
+scale = Vector2(1.0625, 1.75)
+sprite_frames = SubResource("SpriteFrames_tqrbf")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_left = -18.0
