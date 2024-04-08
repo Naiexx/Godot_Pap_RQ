@@ -24,6 +24,7 @@ func _on_button_pressed():
 			print("tarefa concluida")
 			Global.tarefas[i] = "" #Limpa a tarefa realizada do quadro de tarefas
 			Global.aparecerTarefa_Realizada()
+			Global.progressoJogo = Global.progressoJogo + 1
 			break
 
 	print(Global.all_ba[a]["nome" + str(a)])#está a printar o ba que ele selecionou

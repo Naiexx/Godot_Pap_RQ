@@ -115,6 +115,7 @@ func _on_salvar_button_button_down():
 				print("tarefa concluida")
 				Global.tarefas[i] = "" #Limpa a tarefa realizada do quadro de tarefas
 				Global.aparecerTarefa_Realizada()
+				Global.progressoJogo = Global.progressoJogo + 1
 				break
 		
 		$NomeLineEdit.text = ""

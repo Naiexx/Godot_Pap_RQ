@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwieergvsbxdo"]
 
 [ext_resource type="Script" path="res://Parte_da_luta/Armas/tesoura2.gd" id="1_81bpa"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ad21b"]
-size = Vector2(20, 20)
+[ext_resource type="Texture2D" uid="uid://d0afg1tp1yia6" path="res://Parte_da_luta/Armas/latest.png" id="2_8ou4x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1y7jv"]
 
@@ -11,8 +9,9 @@ size = Vector2(20, 20)
 script = ExtResource("1_81bpa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.937255, 0.0941176, 0, 1)
-texture = SubResource("PlaceholderTexture2D_ad21b")
+position = Vector2(0, 1)
+scale = Vector2(0.333333, 0.34375)
+texture = ExtResource("2_8ou4x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1y7jv")

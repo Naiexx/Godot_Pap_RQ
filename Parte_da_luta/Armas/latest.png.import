@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc30axhedwx65"
-path="res://.godot/imported/New Piskel.png-4562f199dc448b271aa47a415d3c1132.ctex"
+uid="uid://d0afg1tp1yia6"
+path="res://.godot/imported/latest.png-33c8548b4823ec0e3d62312839c2b1cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/assets/New Piskel.png"
-dest_files=["res://.godot/imported/New Piskel.png-4562f199dc448b271aa47a415d3c1132.ctex"]
+source_file="res://Parte_da_luta/Armas/latest.png"
+dest_files=["res://.godot/imported/latest.png-33c8548b4823ec0e3d62312839c2b1cc.ctex"]
 
 [params]
 

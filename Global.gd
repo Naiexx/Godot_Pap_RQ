@@ -2,6 +2,8 @@ extends Node
 
 var _player_ref = null
 
+var progressoJogo = 0
+
 var acabar = false
 
 var vidaplayer = 10

@@ -4,7 +4,7 @@ extends Node2D
 @onready var sprite = $Sprite2D
 var player_ref
 var time_since_last_shot = 0.0
-var shoot_interval = 2.0
+var shoot_interval = 1.5
 
 func _ready():
 	set_process_input(true) # Habilita a captura de eventos de entrada
