@@ -4832,7 +4832,6 @@ polygon = PackedVector2Array(-34, -16, -32, -16, -32, -3, -34, -3)
 polygon = PackedVector2Array(-32, -5, -10, -5, -10, -3, -32, -3)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g6iy0"]
-load_path = "res://.godot/imported/New Piskel.png-4562f199dc448b271aa47a415d3c1132.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sq4ul"]
 atlas = SubResource("CompressedTexture2D_g6iy0")
@@ -5151,12 +5150,11 @@ unique_name_in_owner = true
 visible = false
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 125.0
-offset_top = -33.0
-offset_right = 271.0
-offset_bottom = 129.0
+offset_left = 625.0
+offset_top = -59.0
+offset_right = 771.0
+offset_bottom = 103.0
 max_value = 5.0
-value = 2.0
 nine_patch_stretch = true
 texture_under = ExtResource("22_f16gg")
 texture_progress = ExtResource("23_8lthc")
