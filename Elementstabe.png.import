@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3l7k2ue6sokr"
-path="res://.godot/imported/pngtree-start-button-in-pixel-art-style-png-image_4764304.png-3a772d4a3853ec8172aaabcd395f6dd3.ctex"
+uid="uid://btrxo7xb2wryv"
+path="res://.godot/imported/Elementstabe.png-7abbbc206fd7bf8e038e2bb2245f1b12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu_inicial/sprites/pngtree-start-button-in-pixel-art-style-png-image_4764304.png"
-dest_files=["res://.godot/imported/pngtree-start-button-in-pixel-art-style-png-image_4764304.png-3a772d4a3853ec8172aaabcd395f6dd3.ctex"]
+source_file="res://Elementstabe.png"
+dest_files=["res://.godot/imported/Elementstabe.png-7abbbc206fd7bf8e038e2bb2245f1b12.ctex"]
 
 [params]
 
