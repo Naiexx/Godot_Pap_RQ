@@ -1,5 +1,8 @@
 extends Node
 
+var danoRecebido = false
+var danoRecebido2 = false
+
 var _player_ref = null
 
 var progressoJogo = 0

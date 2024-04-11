@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://menu_inicial/scripts/Menu_Inicial.gd" id="1_dntq4"]
 [ext_resource type="FontFile" uid="uid://l4dty0s5xppb" path="res://app/Quadro_Tarefas/EnterCommand.ttf" id="1_wq8h0"]
-[ext_resource type="Texture2D" uid="uid://dvcc4ark6jsvj" path="res://menu_inicial/sprites/fundo.png" id="2_k1hj2"]
+[ext_resource type="Texture2D" uid="uid://bgbtulr5nb763" path="res://menu_inicial/sprites/Captura de ecrã 2024-04-11 114919.png" id="2_qod1u"]
 [ext_resource type="Texture2D" uid="uid://ctovgydx600t1" path="res://menu_inicial/sprites/buttons.png" id="2_rdspj"]
 [ext_resource type="Texture2D" uid="uid://c4m76rlv1pcsk" path="res://menu_inicial/sprites/space.png" id="2_uuj17"]
 [ext_resource type="Texture2D" uid="uid://hts4vbpfukmi" path="res://character/assets/Personagem_parado_frente_png.png" id="3_83nys"]
@@ -252,8 +252,9 @@ offset_bottom = 723.0
 color = Color(0.14902, 0.14902, 0.14902, 1)
 
 [node name="Fundo" type="Sprite2D" parent="."]
-position = Vector2(647, 363)
-texture = ExtResource("2_k1hj2")
+position = Vector2(639, 362)
+scale = Vector2(6.87958, 2.984)
+texture = ExtResource("2_qod1u")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -266,7 +267,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "NOME DO JOGO"
+text = "ETINTROF"
 label_settings = SubResource("LabelSettings_rimrj")
 horizontal_alignment = 1
 
@@ -293,9 +294,8 @@ sprite_frames = SubResource("SpriteFrames_0jl23")
 [node name="PointLight2D" type="PointLight2D" parent="VBoxContainer"]
 position = Vector2(392, 498)
 color = Color(0.831373, 0.176471, 0, 1)
-energy = 4.0
+energy = 20.0
 texture = ExtResource("12_572mm")
-texture_scale = 0.5
 
 [node name="bola" type="Sprite2D" parent="VBoxContainer"]
 position = Vector2(394, 499)

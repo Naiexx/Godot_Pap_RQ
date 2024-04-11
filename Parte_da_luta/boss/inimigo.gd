@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var effects = $Effects2
 @onready var progress_bar = $TextureProgressBar
 @onready var animation_player = owner.find_child("AnimationPlayer")
 @export var tesoura_node : PackedScene
@@ -67,17 +68,33 @@ func direcao():
 	#global_position = Global._player_ref.global_position + Vector2(50, 0) # Ajuste a posição conforme necessário
 	
 	
-	
 func shoot():
 	var tesoura = tesoura_node.instantiate() # esta varaivel guarda a cena da tesoura
 	
+
 	tesoura.position = sprite2.global_position
-	tesoura.direction = sprite2.global_position.direction_to(Global._player_ref.global_position)# o disparo ira dirigir se para a posiçao do rato
+	tesoura.direction = sprite2.global_position.direction_to(Global._player_ref.global_position +  Vector2(0, -20))# o disparo ira dirigir se para a posiçao do rato
 	get_tree().current_scene.call_deferred("add_child",tesoura)# faz o sprite aparecer na tela
+	
+func danoRecebido():
+	if Global.danoRecebido2 == true:
+		effects.play("hurtBlink")
+		var timer : Timer = Timer.new()
+		add_child(timer)
+		timer.one_shot = true
+		timer.autostart = false
+		timer.wait_time = 0.7
+		timer.timeout.connect(teste)
+		timer.start()
+		Global.danoRecebido2 = false
+		
+func teste():
+	effects.play("RESET")
+	
 
 func _physics_process(delta: float) -> void:
 	take_damage()
-	
+	danoRecebido()
 	
 	if Global._player_ref != null: # caso o personagem tenho recebido um corpo o inimigo irá segui-lo
 		direcao()

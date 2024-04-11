@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var _state_machine
 
+@onready var effects = $Effects
 @onready var hand: Node = get_node("Hand")
 #@export var tesoura_node : PackedScene
 @onready var progress_bar2 = $TextureProgressBar
@@ -55,14 +56,29 @@ func _timer_Timeout():
 
 func _ready() -> void:
 	_state_machine = _animtaion_tree["parameters/playback"]
+	#effects.play("RESET")
 	 # Inicializa o timer
 	# Define o intervalo do timer como 2 segundos
 	# Conecta o sinal 'timeout' do timer para a função _on_ShootTimer_timeout
 	#shoot_timer.connect("timeout", self, "_on_ShootTimer_timeout")
 	# Adiciona o timer como filho deste nó para que ele seja ativado corretamente
+func danoRecebido():
+	if Global.danoRecebido == true:
+		effects.play("hurtBlink")
+		var timer : Timer = Timer.new()
+		add_child(timer)
+		timer.one_shot = true
+		timer.autostart = false
+		timer.wait_time = 0.7
+		timer.timeout.connect(teste)
+		timer.start()
+		Global.danoRecebido = false
 
+func teste():
+	effects.play("RESET")
 
 func _physics_process(_delta: float) -> void:
+	danoRecebido()
 	_move()
 	_animate()
 	move_and_slide()
