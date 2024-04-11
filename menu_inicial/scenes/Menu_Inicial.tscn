@@ -1,10 +1,221 @@
-[gd_scene load_steps=8 format=3 uid="uid://brsjojf4rc7j3"]
+[gd_scene load_steps=44 format=3 uid="uid://brsjojf4rc7j3"]
 
 [ext_resource type="Script" path="res://menu_inicial/scripts/Menu_Inicial.gd" id="1_dntq4"]
 [ext_resource type="FontFile" uid="uid://l4dty0s5xppb" path="res://app/Quadro_Tarefas/EnterCommand.ttf" id="1_wq8h0"]
+[ext_resource type="Texture2D" uid="uid://dvcc4ark6jsvj" path="res://menu_inicial/sprites/fundo.png" id="2_k1hj2"]
 [ext_resource type="Texture2D" uid="uid://ctovgydx600t1" path="res://menu_inicial/sprites/buttons.png" id="2_rdspj"]
+[ext_resource type="Texture2D" uid="uid://c4m76rlv1pcsk" path="res://menu_inicial/sprites/space.png" id="2_uuj17"]
+[ext_resource type="Texture2D" uid="uid://hts4vbpfukmi" path="res://character/assets/Personagem_parado_frente_png.png" id="3_83nys"]
 [ext_resource type="Texture2D" uid="uid://drcv6shtwi7xf" path="res://menu_inicial/sprites/buttonsred.png" id="3_w4uxj"]
+[ext_resource type="Texture2D" uid="uid://cpb8qe3difncq" path="res://Parte_da_luta/boss/PigBossAllAnimations (1).png" id="4_3mm30"]
 [ext_resource type="Texture2D" uid="uid://dy06wyftjficj" path="res://menu_inicial/sprites/buttonsgreen.png" id="4_i4yvu"]
+[ext_resource type="Texture2D" uid="uid://bx5udsp4qhko3" path="res://Elementstäbe.png" id="9_26m5v"]
+[ext_resource type="Texture2D" uid="uid://d0afg1tp1yia6" path="res://Parte_da_luta/Armas/latest.png" id="10_ewtka"]
+[ext_resource type="Texture2D" uid="uid://qcn8yeledbw6" path="res://character/assets/light.png" id="12_572mm"]
+[ext_resource type="Texture2D" uid="uid://cb0ctq2omtqbu" path="res://character/assets/Bob_16x16.png" id="13_b7eb1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rimrj"]
+font = ExtResource("1_wq8h0")
+font_size = 72
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+shadow_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+shadow_offset = Vector2(12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atisa"]
+atlas = ExtResource("3_83nys")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr5ta"]
+atlas = ExtResource("3_83nys")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qlb6"]
+atlas = ExtResource("3_83nys")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tie4o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atisa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr5ta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qlb6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mql5a"]
+atlas = ExtResource("4_3mm30")
+region = Rect2(0, 196, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_441qk"]
+atlas = ExtResource("4_3mm30")
+region = Rect2(38, 196, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi3cb"]
+atlas = ExtResource("4_3mm30")
+region = Rect2(76, 196, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xbfa"]
+atlas = ExtResource("4_3mm30")
+region = Rect2(114, 196, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6q8g"]
+atlas = ExtResource("4_3mm30")
+region = Rect2(152, 196, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa07x"]
+atlas = ExtResource("4_3mm30")
+region = Rect2(190, 196, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxr84"]
+atlas = ExtResource("4_3mm30")
+region = Rect2(228, 196, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0thus"]
+atlas = ExtResource("4_3mm30")
+region = Rect2(266, 196, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdtxi"]
+atlas = ExtResource("4_3mm30")
+region = Rect2(304, 196, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqgei"]
+atlas = ExtResource("4_3mm30")
+region = Rect2(342, 196, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yuk8"]
+atlas = ExtResource("4_3mm30")
+region = Rect2(380, 196, 38, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b7lg"]
+atlas = ExtResource("4_3mm30")
+region = Rect2(418, 196, 38, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_88k1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mql5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_441qk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi3cb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xbfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6q8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa07x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxr84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0thus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdtxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqgei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yuk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b7lg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ahnb"]
+atlas = ExtResource("9_26m5v")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jl23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ahnb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejsor"]
+atlas = ExtResource("13_b7eb1")
+region = Rect2(288, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5214"]
+atlas = ExtResource("13_b7eb1")
+region = Rect2(304, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sribk"]
+atlas = ExtResource("13_b7eb1")
+region = Rect2(320, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e51ad"]
+atlas = ExtResource("13_b7eb1")
+region = Rect2(336, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eathe"]
+atlas = ExtResource("13_b7eb1")
+region = Rect2(368, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlfjd"]
+atlas = ExtResource("13_b7eb1")
+region = Rect2(352, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0m4n6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejsor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5214")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sribk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e51ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eathe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlfjd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_evvyu"]
+offsets = PackedFloat32Array(0.696721, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pwvw3"]
+gradient = SubResource("Gradient_evvyu")
+width = 100
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dl4iu"]
 particle_flag_align_y = true
@@ -18,17 +229,9 @@ spread = 50.0
 radial_velocity_min = -200.0
 gravity = Vector3(0, 0, 0)
 radial_accel_min = -200.0
-scale_min = 4.0
-scale_max = 4.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_rimrj"]
-font = ExtResource("1_wq8h0")
-font_size = 72
-outline_size = 12
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 12
-shadow_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
-shadow_offset = Vector2(12, 12)
+scale_min = 2.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_pwvw3")
 
 [node name="Menu_inicial" type="Control"]
 layout_mode = 3
@@ -40,16 +243,79 @@ grow_vertical = 2
 script = ExtResource("1_dntq4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 1282.0
+offset_bottom = 723.0
+color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(647, 363)
+texture = ExtResource("2_k1hj2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
 offset_right = 1280.0
 offset_bottom = 720.0
-color = Color(0, 0, 0, 1)
+theme_override_constants/separation = 120
+
+[node name="Separador" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "NOME DO JOGO"
+label_settings = SubResource("LabelSettings_rimrj")
+horizontal_alignment = 1
+
+[node name="personagem" type="AnimatedSprite2D" parent="VBoxContainer"]
+position = Vector2(193, 161)
+rotation = -0.23911
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_tie4o")
+autoplay = "default"
+
+[node name="porco" type="AnimatedSprite2D" parent="VBoxContainer"]
+position = Vector2(527, 604)
+rotation = 0.23911
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_88k1l")
+autoplay = "default"
+
+[node name="bastao" type="AnimatedSprite2D" parent="VBoxContainer"]
+position = Vector2(486, 601)
+rotation = 0.23911
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_0jl23")
+
+[node name="PointLight2D" type="PointLight2D" parent="VBoxContainer"]
+position = Vector2(392, 498)
+color = Color(0.831373, 0.176471, 0, 1)
+energy = 4.0
+texture = ExtResource("12_572mm")
+texture_scale = 0.5
+
+[node name="bola" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(394, 499)
+rotation = -2.03505
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_ewtka")
+
+[node name="NPC" type="AnimatedSprite2D" parent="."]
+position = Vector2(1045, 316)
+rotation = 0.23911
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_0m4n6")
+autoplay = "default"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(639, 366)
 scale = Vector2(5, 4)
-amount = 130
+amount = 120
 process_material = SubResource("ParticleProcessMaterial_dl4iu")
+texture = ExtResource("2_uuj17")
 lifetime = 1.7
 
 [node name="Buttons" type="Sprite2D" parent="."]
@@ -83,19 +349,6 @@ texture = ExtResource("4_i4yvu")
 layout_mode = 2
 offset_right = 1280.0
 offset_bottom = 720.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 120
-
-[node name="Separador" type="Control" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "NOME DO JOGO"
-label_settings = SubResource("LabelSettings_rimrj")
-horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
