@@ -18,5 +18,6 @@ func _input(event):
 	if Global.activate_e and event.is_action_pressed("ui_cancel"):
 		Global._move_speed = 150 # volta a dar a velocidade ao personagem
 		%Control.visible = false #Caso ele carrege no ESC o PC vai fechar
+		#teste david34
 
 
