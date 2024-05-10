@@ -14,6 +14,30 @@
 [ext_resource type="Texture2D" uid="uid://qcn8yeledbw6" path="res://character/assets/light.png" id="12_572mm"]
 [ext_resource type="Texture2D" uid="uid://cb0ctq2omtqbu" path="res://character/assets/Bob_16x16.png" id="13_b7eb1"]
 
+[sub_resource type="Gradient" id="Gradient_evvyu"]
+offsets = PackedFloat32Array(0.696721, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_exckf"]
+gradient = SubResource("Gradient_evvyu")
+width = 100
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dl4iu"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 150.0
+emission_ring_inner_radius = 120.0
+spread = 50.0
+radial_velocity_min = -200.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -200.0
+scale_min = 2.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_exckf")
+
 [sub_resource type="LabelSettings" id="LabelSettings_rimrj"]
 font = ExtResource("1_wq8h0")
 font_size = 72
@@ -209,30 +233,6 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_evvyu"]
-offsets = PackedFloat32Array(0.696721, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_pwvw3"]
-gradient = SubResource("Gradient_evvyu")
-width = 100
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dl4iu"]
-particle_flag_align_y = true
-particle_flag_disable_z = true
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 1.0
-emission_ring_radius = 150.0
-emission_ring_inner_radius = 120.0
-spread = 50.0
-radial_velocity_min = -200.0
-gravity = Vector3(0, 0, 0)
-radial_accel_min = -200.0
-scale_min = 2.0
-scale_max = 2.0
-color_ramp = SubResource("GradientTexture1D_pwvw3")
-
 [node name="Menu_inicial" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -255,6 +255,14 @@ color = Color(0.14902, 0.14902, 0.14902, 1)
 position = Vector2(639, 362)
 scale = Vector2(6.87958, 2.984)
 texture = ExtResource("2_qod1u")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(639, 366)
+scale = Vector2(5, 4)
+amount = 120
+process_material = SubResource("ParticleProcessMaterial_dl4iu")
+texture = ExtResource("2_uuj17")
+lifetime = 1.7
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -294,7 +302,7 @@ sprite_frames = SubResource("SpriteFrames_0jl23")
 [node name="PointLight2D" type="PointLight2D" parent="VBoxContainer"]
 position = Vector2(392, 498)
 color = Color(0.831373, 0.176471, 0, 1)
-energy = 20.0
+energy = 10.0
 texture = ExtResource("12_572mm")
 
 [node name="bola" type="Sprite2D" parent="VBoxContainer"]
@@ -310,14 +318,6 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_0m4n6")
 autoplay = "default"
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(639, 366)
-scale = Vector2(5, 4)
-amount = 120
-process_material = SubResource("ParticleProcessMaterial_dl4iu")
-texture = ExtResource("2_uuj17")
-lifetime = 1.7
-
 [node name="Buttons" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(640.5, 455)
@@ -331,18 +331,18 @@ scale = Vector2(0.255208, 0.272222)
 texture = ExtResource("2_rdspj")
 
 [node name="Buttons3" type="Sprite2D" parent="."]
-position = Vector2(640.5, 370)
-scale = Vector2(0.25625, 0.272222)
+position = Vector2(639, 370)
+scale = Vector2(0.383333, 0.272222)
 texture = ExtResource("2_rdspj")
 
 [node name="Buttonsred" type="Sprite2D" parent="."]
 position = Vector2(641, 455)
-scale = Vector2(0.257986, 0.272222)
+scale = Vector2(0.383, 0.272)
 texture = ExtResource("3_w4uxj")
 
 [node name="Buttonsgreen" type="Sprite2D" parent="."]
-position = Vector2(640, 285)
-scale = Vector2(0.25625, 0.27118)
+position = Vector2(639, 285)
+scale = Vector2(0.383, 0.272)
 texture = ExtResource("4_i4yvu")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -381,7 +381,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("1_wq8h0")
 theme_override_font_sizes/font_size = 48
-text = "OPÇÕES"
+text = "CONTROLES"
 
 [node name="Separador4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -396,4 +396,5 @@ theme_override_font_sizes/font_size = 48
 text = "SAIR"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

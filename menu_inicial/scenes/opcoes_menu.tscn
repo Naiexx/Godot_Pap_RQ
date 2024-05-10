@@ -1,0 +1,172 @@
+[gd_scene load_steps=11 format=3 uid="uid://dfripyeeii3yn"]
+
+[ext_resource type="Script" path="res://menu_inicial/scripts/opcoes_menu.gd" id="1_kv7vg"]
+[ext_resource type="Texture2D" uid="uid://bgbtulr5nb763" path="res://menu_inicial/sprites/Captura de ecrã 2024-04-11 114919.png" id="1_lb7wg"]
+[ext_resource type="Texture2D" uid="uid://c4m76rlv1pcsk" path="res://menu_inicial/sprites/space.png" id="2_1nlst"]
+[ext_resource type="FontFile" uid="uid://l4dty0s5xppb" path="res://app/Quadro_Tarefas/EnterCommand.ttf" id="3_h8akd"]
+[ext_resource type="Texture2D" uid="uid://ctovgydx600t1" path="res://menu_inicial/sprites/buttons.png" id="4_d6kcy"]
+
+[sub_resource type="Gradient" id="Gradient_kup8m"]
+offsets = PackedFloat32Array(0.696721, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pwvw3"]
+gradient = SubResource("Gradient_kup8m")
+width = 100
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_366tj"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 150.0
+emission_ring_inner_radius = 120.0
+spread = 50.0
+radial_velocity_min = -200.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -200.0
+scale_min = 2.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_pwvw3")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1x77f"]
+font = ExtResource("3_h8akd")
+font_size = 72
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_twppu"]
+font = ExtResource("3_h8akd")
+font_size = 32
+
+[node name="Opcoes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kv7vg")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(639, 362)
+scale = Vector2(6.87958, 2.984)
+texture = ExtResource("1_lb7wg")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(632, 367)
+scale = Vector2(5.50366, 3.5808)
+amount = 120
+process_material = SubResource("ParticleProcessMaterial_366tj")
+texture = ExtResource("2_1nlst")
+lifetime = 1.7
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_h8akd")
+theme_override_font_sizes/font_size = 48
+text = "Controles"
+label_settings = SubResource("LabelSettings_1x77f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Seperator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "W -> Andar para cima"
+label_settings = SubResource("LabelSettings_twppu")
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "S -> Andar para baixo"
+label_settings = SubResource("LabelSettings_twppu")
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "A -> Andar para esquerda"
+label_settings = SubResource("LabelSettings_twppu")
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "D -> Andar para direita"
+label_settings = SubResource("LabelSettings_twppu")
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "E -> Interagir"
+label_settings = SubResource("LabelSettings_twppu")
+
+[node name="Label6" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Esc -> Menu/Voltar"
+label_settings = SubResource("LabelSettings_twppu")
+
+[node name="Seperator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Buttonsblack" type="Sprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(135, 588)
+scale = Vector2(0.225, 0.277778)
+texture = ExtResource("4_d6kcy")
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_h8akd")
+theme_override_font_sizes/font_size = 48
+text = "Voltar"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 574.0
+offset_right = 690.0
+offset_bottom = 623.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_h8akd")
+theme_override_font_sizes/font_size = 48
+text = "Voltar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

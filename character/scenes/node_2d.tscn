@@ -1,6 +1,7 @@
-[gd_scene load_steps=120 format=3 uid="uid://brjprsl7ft2sb"]
+[gd_scene load_steps=121 format=3 uid="uid://brjprsl7ft2sb"]
 
 [ext_resource type="Script" path="res://character/scripts/Character.gd" id="1_chouu"]
+[ext_resource type="Texture2D" uid="uid://bgbtulr5nb763" path="res://menu_inicial/sprites/Captura de ecrã 2024-04-11 114919.png" id="1_ogy66"]
 [ext_resource type="Texture2D" uid="uid://hts4vbpfukmi" path="res://character/assets/Personagem_parado_frente_png.png" id="2_wy42f"]
 [ext_resource type="Texture2D" uid="uid://cq6ftgciv1ilv" path="res://terrain/assets/Interiors_free_32x32.png" id="3_mxbxh"]
 [ext_resource type="Texture2D" uid="uid://csce5y1m7de8k" path="res://terrain/assets/Room_Builder_free_32x32.png" id="4_kues7"]
@@ -4997,6 +4998,11 @@ size = Vector2(52, 10)
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1, 0)
 
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(363.5, 231.5)
+scale = Vector2(4.3822, 1.94)
+texture = ExtResource("1_ogy66")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_4ujvk")
 format = 2
@@ -5101,7 +5107,7 @@ layer_2/name = "layer 1"
 layer_2/tile_data = PackedInt32Array(917525, 851969, 268435459)
 
 [node name="Npc" type="CharacterBody2D" parent="."]
-position = Vector2(-2, -3)
+position = Vector2(-1, -3)
 script = ExtResource("17_icouo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Npc"]
