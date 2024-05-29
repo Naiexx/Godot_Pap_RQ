@@ -32,6 +32,8 @@ var all_nome = []
 
 var activate_editar = false
 
+var pause = true
+
 var info_ba2 = "" ; var info_nome2 = ""; var info_turma2 = ""; var info_curso2 = ""; var info_datadenascimento2 = ""
 
 var perguntas = [
