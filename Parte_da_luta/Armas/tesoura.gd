@@ -12,7 +12,10 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_body_entered(_body):
 	#if _body.is_in_group("inimigoooo"):
 		#Global.vidaboss -= 1
+	if _body.is_in_group("defesa"):
+		queue_free()
 	
 	if _body.is_in_group("inimigoooo"):# se algo que entrar nesta area for de grupo inimgo a barra de progresso ira descer
 		Global.vidaboss-= 1
 		Global.danoRecebido2 = true
+		queue_free()

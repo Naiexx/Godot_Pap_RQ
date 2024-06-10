@@ -1,9 +1,10 @@
-[gd_scene load_steps=122 format=3 uid="uid://brjprsl7ft2sb"]
+[gd_scene load_steps=123 format=3 uid="uid://brjprsl7ft2sb"]
 
 [ext_resource type="Script" path="res://character/scripts/Character.gd" id="1_chouu"]
 [ext_resource type="Texture2D" uid="uid://bgbtulr5nb763" path="res://menu_inicial/sprites/Captura de ecrã 2024-04-11 114919.png" id="1_ogy66"]
 [ext_resource type="Texture2D" uid="uid://hts4vbpfukmi" path="res://character/assets/Personagem_parado_frente_png.png" id="2_wy42f"]
 [ext_resource type="Texture2D" uid="uid://cq6ftgciv1ilv" path="res://terrain/assets/Interiors_free_32x32.png" id="3_mxbxh"]
+[ext_resource type="Script" path="res://character/scenes/Control.gd" id="4_3vxta"]
 [ext_resource type="Texture2D" uid="uid://csce5y1m7de8k" path="res://terrain/assets/Room_Builder_free_32x32.png" id="4_kues7"]
 [ext_resource type="Texture2D" uid="uid://v3l3grawahie" path="res://character/assets/Personagem_andar_lado_direita.png" id="5_8gm8i"]
 [ext_resource type="Script" path="res://terrain/scripts/PC.gd" id="5_b1c8b"]
@@ -4615,49 +4616,49 @@ _data = {
 "walk_up": SubResource("Animation_1a3x7")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xdvku"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oqx3q"]
 animation = &"idle_down"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fmgf2"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8vaha"]
 animation = &"idle_up"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kahq5"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4o3xm"]
 animation = &"idle_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pgu36"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fv5lk"]
 animation = &"idle_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_t676s"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_xdvku")
+blend_point_0/node = SubResource("AnimationNodeAnimation_oqx3q")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_fmgf2")
+blend_point_1/node = SubResource("AnimationNodeAnimation_8vaha")
 blend_point_1/pos = Vector2(0, -1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_kahq5")
+blend_point_2/node = SubResource("AnimationNodeAnimation_4o3xm")
 blend_point_2/pos = Vector2(-1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_pgu36")
+blend_point_3/node = SubResource("AnimationNodeAnimation_fv5lk")
 blend_point_3/pos = Vector2(1, 0)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tjdth"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_het11"]
 animation = &"walk_down"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qayt1"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fv4s3"]
 animation = &"walk_up"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fyyui"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lwfhh"]
 animation = &"walk_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7y2li"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ahhxd"]
 animation = &"walk_righ"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_40hd3"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_tjdth")
+blend_point_0/node = SubResource("AnimationNodeAnimation_het11")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_qayt1")
+blend_point_1/node = SubResource("AnimationNodeAnimation_fv4s3")
 blend_point_1/pos = Vector2(0, -1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_fyyui")
+blend_point_2/node = SubResource("AnimationNodeAnimation_lwfhh")
 blend_point_2/pos = Vector2(-1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_7y2li")
+blend_point_3/node = SubResource("AnimationNodeAnimation_ahhxd")
 blend_point_3/pos = Vector2(1, 0)
 blend_mode = 1
 
@@ -4812,7 +4813,7 @@ texture_region_size = Vector2i(32, 32)
 11:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:2/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="TileSet" id="TileSet_gvw53"]
+[sub_resource type="TileSet" id="TileSet_somr6"]
 tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
@@ -5021,6 +5022,18 @@ zoom = Vector2(1.575, 1.575)
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="Control" type="Control" parent="YSort"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_3vxta")
+
+[node name="Label" type="Label" parent="YSort/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Character" type="CharacterBody2D" parent="YSort" node_paths=PackedStringArray("_animtaion_tree")]
 position = Vector2(381, 163)
 script = ExtResource("1_chouu")
@@ -5051,9 +5064,9 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
 
-[node name="ObjectsInterior" type="TileMap" parent="YSort"]
+[node name="ObjectsInterior2" type="TileMap" parent="YSort"]
 y_sort_enabled = true
-tile_set = SubResource("TileSet_gvw53")
+tile_set = SubResource("TileSet_somr6")
 format = 2
 layer_0/y_sort_enabled = true
 layer_0/tile_data = PackedInt32Array(720906, 65536, 8, 720907, 65536, 8, 720908, 65536, 8, 720909, 65536, 8, 720910, 65536, 8, 720900, 65537, 4, 720901, 65537, 4, 720902, 65537, 4, 720903, 65537, 4, 720904, 65537, 4, 720905, 65537, 4, 720911, 65537, 4, 720912, 65537, 4, 720913, 65537, 4, 720914, 65537, 4, 720915, 65537, 4, 720916, 65537, 4, 720899, 1, 4, 720917, 131073, 4, 327685, 458752, 13, 458772, 262144, 80, 458771, 196608, 80, 524292, 131072, 33, 65548, 262144, 68, 327700, 786432, 56)
