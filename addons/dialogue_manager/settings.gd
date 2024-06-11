@@ -82,8 +82,11 @@ static func get_settings(only_keys: PackedStringArray = []) -> Dictionary:
 
 static func get_user_config() -> Dictionary:
 	var user_config: Dictionary = {
+		check_for_updates = true,
 		just_refreshed = null,
 		recent_files = [],
+		reopen_files = [],
+		most_recent_reopen_file = "",
 		carets = {},
 		run_title = "",
 		run_resource_path = "",
@@ -173,9 +176,5 @@ static func has_dotnet_solution() -> bool:
 		var has_dotnet_solution: bool = FileAccess.file_exists("res://%s/%s.sln" % [directory, file_name])
 		set_user_value("has_dotnet_solution", has_dotnet_solution)
 		return has_dotnet_solution
-	else:
-		var plugin_path: String = new().get_script().resource_path.get_base_dir()
-		if not ResourceLoader.exists(plugin_path + "/DialogueManager.cs"): return false
-		if load(plugin_path + "/DialogueManager.cs") == null: return false
 
-	return true
+	return false

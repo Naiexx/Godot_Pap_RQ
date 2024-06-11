@@ -20,19 +20,24 @@ César Augusto: {{Global.perguntas[Global.pergunta_random]}}
 		César Augusto: Acertaste!! 
 		César Augusto: Vai ao quadro de tarefas para ver a tarefa recebida
 		do Global.adicionarTarefa() # adiciona uma tarefa ao quadro de tarefas
+		do Global.stats_respostas_certas = Global.stats_respostas_certas + 1
+		
 	else:
 		César Augusto: Erraste!!
 		do Global.carregarCena()
 		do Global._move_speed = 150
+		do Global.stats_respostas_erradas = Global.stats_respostas_erradas + 1
 - Não.
 	if Global.respostas[Global.pergunta_random] == "f": 
 		César Augusto: Acertaste!! 
 		César Augusto: Vai ao quadro de tarefas para ver a tarefa recebida
 		do Global.adicionarTarefa() # adiciona uma tarefa ao quadro de tarefas
+		do Global.stats_respostas_certas = Global.stats_respostas_certas + 1
 	else:
 		César Augusto: Erraste!!
 		do Global.carregarCena()
 		do Global._move_speed = 150
+		do Global.stats_respostas_erradas = Global.stats_respostas_erradas + 1
 César Augusto: Adeus 
 do Global._move_speed = 150
 

@@ -29,6 +29,11 @@ var all_ba = [ ]
 
 var all_nome = []
 
+var stats_respostas_certas = 0
+var stats_respostas_erradas = 0
+var stats_mortes = 0
+var stats_tempo = 0
+var stats_tarefas_realizadas = 0
 
 var activate_editar = false
 

@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://csa4ixsd03jre"]
+
+[ext_resource type="FontFile" uid="uid://l4dty0s5xppb" path="res://app/Quadro_Tarefas/EnterCommand.ttf" id="1_qeptb"]
+
+[resource]
+font = ExtResource("1_qeptb")
+font_size = 32
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://brjprsl7ft2sb"]
+[gd_scene load_steps=124 format=3 uid="uid://brjprsl7ft2sb"]
 
 [ext_resource type="Script" path="res://character/scripts/Character.gd" id="1_chouu"]
 [ext_resource type="Texture2D" uid="uid://bgbtulr5nb763" path="res://menu_inicial/sprites/Captura de ecrã 2024-04-11 114919.png" id="1_ogy66"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://qcn8yeledbw6" path="res://character/assets/light.png" id="22_q12j2"]
 [ext_resource type="Texture2D" uid="uid://c6lou7yti702c" path="res://character/assets/New Piskel (3).png" id="23_8lthc"]
 [ext_resource type="Script" path="res://character/scenes/TextureProgressBar.gd" id="24_gucvq"]
+[ext_resource type="PackedScene" uid="uid://dw1swwo4332x6" path="res://estatisticas/estatisticas.tscn" id="28_2y1yl"]
 [ext_resource type="PackedScene" uid="uid://c3u6yriyi3aun" path="res://menu_inicial/pause_menu/pause_menu.tscn" id="28_5rd6f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlb7i"]
@@ -5179,6 +5180,11 @@ texture_under = ExtResource("22_f16gg")
 texture_progress = ExtResource("23_8lthc")
 script = ExtResource("24_gucvq")
 
+[node name="estatisticas" parent="CanvasLayer" instance=ExtResource("28_2y1yl")]
+visible = false
+offset_left = -1.0
+offset_right = -1.0
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.192157, 0.176471, 0.309804, 1)
 
@@ -5268,6 +5274,7 @@ texture = ExtResource("22_q12j2")
 texture_scale = 0.7
 
 [node name="pause_menu" parent="." instance=ExtResource("28_5rd6f")]
+visible = false
 
 [connection signal="body_entered" from="YSort/PC" to="YSort/Character" method="_on_pc_body_entered"]
 [connection signal="body_exited" from="YSort/PC" to="YSort/Character" method="_on_pc_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c6sqqxrqj1ao3"]
+[gd_scene load_steps=27 format=3 uid="uid://c6sqqxrqj1ao3"]
 
 [ext_resource type="Texture2D" uid="uid://cq6ftgciv1ilv" path="res://terrain/assets/Interiors_free_32x32.png" id="2_8kh7x"]
 [ext_resource type="PackedScene" uid="uid://cv5npshae7km3" path="res://Parte_da_luta/Player_luta/player.tscn" id="2_oocmg"]
@@ -299,6 +299,16 @@ physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/3 = SubResource("TileSetAtlasSource_4b0ph")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykxh2"]
+texture = ExtResource("2_8kh7x")
+texture_region_size = Vector2i(32, 32)
+15:53/size_in_atlas = Vector2i(1, 2)
+15:53/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3mlrj"]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_ykxh2")
+
 [sub_resource type="Environment" id="Environment_abcsh"]
 background_mode = 3
 tonemap_mode = 3
@@ -372,6 +382,11 @@ layer_0/y_sort_enabled = true
 layer_0/tile_data = PackedInt32Array(327679, 524291, 58, 917523, 720899, 60, 393230, 655363, 47, 262163, 983043, 53, 458760, 983043, 57, 917514, 983043, 55, 262144, 983043, 53, 720916, 983043, 57, 786436, 524291, 60, 851967, 983043, 57, 262151, 720899, 60, 458766, 655363, 57)
 layer_1/y_sort_enabled = true
 layer_1/tile_data = PackedInt32Array(393230, 655363, 47)
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_3mlrj")
+format = 2
+layer_0/tile_data = PackedInt32Array(720900, 983041, 53)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.192157, 0.176471, 0.309804, 1)
