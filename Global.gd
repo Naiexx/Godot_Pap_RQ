@@ -1,5 +1,10 @@
 extends Node
 
+var contar_morte = true
+
+var seconds = 20
+var minutes = 0
+
 var danoRecebido = false
 var danoRecebido2 = false
 

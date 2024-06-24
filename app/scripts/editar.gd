@@ -47,7 +47,7 @@ func _on_atualizar_button_pressed():
 		add = false
 		
 		tarefa_concluida()
-		Global.stat
+		
 				
 				
 		var Curso = "CursoOptionButton2"

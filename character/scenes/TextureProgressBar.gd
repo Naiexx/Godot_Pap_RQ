@@ -10,4 +10,5 @@ func _ready():
 func _process(delta):
 	if value != Global.progressoJogo:
 		value = Global.progressoJogo
+		
 	pass

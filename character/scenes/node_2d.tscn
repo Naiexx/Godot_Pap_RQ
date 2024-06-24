@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://brjprsl7ft2sb"]
+[gd_scene load_steps=126 format=3 uid="uid://brjprsl7ft2sb"]
 
 [ext_resource type="Script" path="res://character/scripts/Character.gd" id="1_chouu"]
 [ext_resource type="Texture2D" uid="uid://bgbtulr5nb763" path="res://menu_inicial/sprites/Captura de ecrã 2024-04-11 114919.png" id="1_ogy66"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://character/scenes/TextureProgressBar.gd" id="24_gucvq"]
 [ext_resource type="PackedScene" uid="uid://dw1swwo4332x6" path="res://estatisticas/estatisticas.tscn" id="28_2y1yl"]
 [ext_resource type="PackedScene" uid="uid://c3u6yriyi3aun" path="res://menu_inicial/pause_menu/pause_menu.tscn" id="28_5rd6f"]
+[ext_resource type="FontFile" uid="uid://l4dty0s5xppb" path="res://app/Quadro_Tarefas/EnterCommand.ttf" id="29_1cb42"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlb7i"]
 resource_name = "Interior"
@@ -4998,6 +4999,12 @@ size = Vector2(21, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qfsu"]
 size = Vector2(52, 10)
 
+[sub_resource type="LabelSettings" id="LabelSettings_k1aow"]
+font = ExtResource("29_1cb42")
+font_size = 64
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1, 0)
 
@@ -5022,18 +5029,6 @@ zoom = Vector2(1.575, 1.575)
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="Control" type="Control" parent="YSort"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("4_3vxta")
-
-[node name="Label" type="Label" parent="YSort/Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="Character" type="CharacterBody2D" parent="YSort" node_paths=PackedStringArray("_animtaion_tree")]
 position = Vector2(381, 163)
@@ -5185,6 +5180,25 @@ visible = false
 offset_left = -1.0
 offset_right = -1.0
 
+[node name="Control2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 40.0
+script = ExtResource("4_3vxta")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Control2"]
+autostart = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control2"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 5.0
+offset_right = 233.0
+offset_bottom = 69.0
+label_settings = SubResource("LabelSettings_k1aow")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.192157, 0.176471, 0.309804, 1)
 
@@ -5282,3 +5296,4 @@ visible = false
 [connection signal="body_exited" from="Npc/AreaNpc" to="YSort/Character" method="_on_area_npc_body_exited"]
 [connection signal="body_entered" from="QuadroTarefas" to="YSort/Character" method="_on_quadro_tarefas_body_entered"]
 [connection signal="body_exited" from="QuadroTarefas" to="YSort/Character" method="_on_quadro_tarefas_body_exited"]
+[connection signal="timeout" from="CanvasLayer/Control2/Timer" to="CanvasLayer/Control2" method="_on_timer_timeout"]

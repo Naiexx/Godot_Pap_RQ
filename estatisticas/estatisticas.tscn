@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dw1swwo4332x6"]
+[gd_scene load_steps=4 format=3 uid="uid://dw1swwo4332x6"]
 
 [ext_resource type="Texture2D" uid="uid://vmavcuhxefe2" path="res://estatisticas/New Piskel.png" id="1_m8kd8"]
+[ext_resource type="Script" path="res://estatisticas/estatisticas.gd" id="1_vqkbc"]
 [ext_resource type="LabelSettings" uid="uid://csa4ixsd03jre" path="res://estatisticas/estatisticas_label_settings.tres" id="2_b44ja"]
 
 [node name="Control" type="Control"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vqkbc")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
@@ -29,7 +31,7 @@ offset_left = 480.0
 offset_top = 241.0
 offset_right = 735.0
 offset_bottom = 304.0
-text = "Tempo"
+text = "Tempo Restante"
 label_settings = ExtResource("2_b44ja")
 autowrap_mode = 3
 
@@ -128,6 +130,7 @@ offset_left = 781.0
 offset_top = 493.0
 offset_right = 1036.0
 offset_bottom = 556.0
-text = "2"
+text = "
+"
 label_settings = ExtResource("2_b44ja")
 autowrap_mode = 3

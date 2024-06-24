@@ -28,8 +28,8 @@ var healt2 : = 10:
 
 func take_damage2(): # Tira vida ao boss
 	progress_bar2.value = Global.vidaplayer
-
-	if Global.vidaplayer <= 0: # caso a vida do boss chegue ao fim a barra de progresso e o inimgo desaparecem e aparece uma animaçao
+	
+	if Global.vidaplayer <= 0: # caso a vida do player chegue ao fim a barra de progresso e o inimgo desaparecem e aparece uma animaçao
 		
 		var timer : Timer = Timer.new()
 		add_child(timer)
@@ -42,12 +42,16 @@ func take_damage2(): # Tira vida ao boss
 		$".".visible = false
 		$UI/Label.visible = true
 		$Timer.start
+		
+		if Global.contar_morte == true:
+			Global.stats_mortes = Global.stats_mortes+1 
+			Global.contar_morte = false
 		#get_tree().change_scene_to_file("res://character/scenes/node_2d.tscn")
 		
 
 func _on_timer_timeout():
 	get_tree().reload_current_scene()
-
+	
 
 func _timer_Timeout():
 	get_tree().change_scene_to_file("res://character/scenes/node_2d.tscn")
@@ -56,6 +60,7 @@ func _timer_Timeout():
 
 func _ready() -> void:
 	_state_machine = _animtaion_tree["parameters/playback"]
+	Global.contar_morte = true
 	#effects.play("RESET")
 	 # Inicializa o timer
 	# Define o intervalo do timer como 2 segundos

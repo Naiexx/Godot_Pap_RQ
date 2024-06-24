@@ -191,7 +191,7 @@ size = Vector2(48, 45)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xc5bo"]
 radius = 18.0
-height = 44.0
+height = 46.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe3rf"]
 size = Vector2(32, 40)
@@ -315,6 +315,7 @@ tonemap_mode = 3
 adjustment_enabled = true
 
 [node name="Luta" type="Node2D"]
+position = Vector2(1, 0)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_6jf2f")
@@ -339,7 +340,7 @@ position = Vector2(141, 400)
 shape = SubResource("RectangleShape2D_v6s1l")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-15, 309)
+position = Vector2(267, 247)
 shape = SubResource("CapsuleShape2D_xc5bo")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -373,6 +374,8 @@ position = Vector2(170, 207)
 [node name="Camera2D" type="Camera2D" parent="YSort/player"]
 position = Vector2(220, 39)
 zoom = Vector2(1.575, 1.575)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
 
 [node name="TileMap2" type="TileMap" parent="YSort"]
 y_sort_enabled = true
@@ -480,6 +483,21 @@ texture_scale = 1.5
 
 [node name="Shadow6" type="PointLight2D" parent="Node2D"]
 position = Vector2(623, 149)
+energy = 0.5
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 3.0
+texture = ExtResource("5_bijdc")
+texture_scale = 0.5
+
+[node name="TextureLight7" type="PointLight2D" parent="Node2D"]
+position = Vector2(145, 364)
+energy = 0.5
+texture = ExtResource("5_bijdc")
+texture_scale = 1.5
+
+[node name="Shadow7" type="PointLight2D" parent="Node2D"]
+position = Vector2(144, 364)
 energy = 0.5
 shadow_enabled = true
 shadow_filter = 1
