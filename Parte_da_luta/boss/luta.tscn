@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://c6sqqxrqj1ao3"]
+[gd_scene load_steps=28 format=3 uid="uid://c6sqqxrqj1ao3"]
 
+[ext_resource type="Texture2D" uid="uid://bgbtulr5nb763" path="res://menu_inicial/sprites/Captura de ecrã 2024-04-11 114919.png" id="1_2xk4u"]
 [ext_resource type="Texture2D" uid="uid://cq6ftgciv1ilv" path="res://terrain/assets/Interiors_free_32x32.png" id="2_8kh7x"]
 [ext_resource type="PackedScene" uid="uid://cv5npshae7km3" path="res://Parte_da_luta/Player_luta/player.tscn" id="2_oocmg"]
 [ext_resource type="PackedScene" uid="uid://ufptu7cvu1wi" path="res://Parte_da_luta/boss/inimigo.tscn" id="3_l64lw"]
@@ -316,6 +317,11 @@ adjustment_enabled = true
 
 [node name="Luta" type="Node2D"]
 position = Vector2(1, 0)
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(311.5, 288)
+scale = Vector2(9.89005, 4.672)
+texture = ExtResource("1_2xk4u")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_6jf2f")

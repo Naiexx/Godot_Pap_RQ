@@ -15,7 +15,7 @@
 do Global.randomizaPergunta() #Vai trocar o pergunta_random para outro número aleatorio
 César Augusto: Olá tenho uma pergunta para ti, caso acertes recebes uma tarefa
 César Augusto: {{Global.perguntas[Global.pergunta_random]}} 
-- Sim.  
+- Verdadeiro.  
 	if Global.respostas[Global.pergunta_random] == "v": 
 		César Augusto: Acertaste!! 
 		César Augusto: Vai ao quadro de tarefas para ver a tarefa recebida
@@ -27,7 +27,7 @@ César Augusto: {{Global.perguntas[Global.pergunta_random]}}
 		do Global.carregarCena()
 		do Global._move_speed = 150
 		do Global.stats_respostas_erradas = Global.stats_respostas_erradas + 1
-- Não.
+- Falso.
 	if Global.respostas[Global.pergunta_random] == "f": 
 		César Augusto: Acertaste!! 
 		César Augusto: Vai ao quadro de tarefas para ver a tarefa recebida

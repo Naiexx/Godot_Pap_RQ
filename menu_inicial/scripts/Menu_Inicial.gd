@@ -17,6 +17,12 @@ func _on_button_3_pressed():
 
 
 func _on_button_pressed():
+	Global.minutes = 1
+	Global.stats_respostas_certas = 0
+	Global.stats_respostas_erradas = 0
+	Global.stats_mortes = 0
+	Global.stats_tempo = 0
+	Global.stats_tarefas_realizadas = 0
 	get_tree().change_scene_to_file("res://character/scenes/node_2d.tscn")
 	
 	pass # Replace with function body.

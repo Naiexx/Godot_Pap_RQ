@@ -17,7 +17,8 @@ func _unhandled_input(event):
 		get_tree().paused = true
 
 func _on_button_voltar_pressed():
-	get_tree().paused = false
+	if Global.minutes != 0 or Global.seconds != 0:
+		get_tree().paused = false
 	visible = false
 	pass # Replace with function body.
 
