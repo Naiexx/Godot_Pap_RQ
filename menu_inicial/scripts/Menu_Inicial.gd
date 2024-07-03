@@ -17,7 +17,7 @@ func _on_button_3_pressed():
 
 
 func _on_button_pressed():
-	Global.minutes = 1
+	Global.minutes = 5
 	Global.stats_respostas_certas = 0
 	Global.stats_respostas_erradas = 0
 	Global.stats_mortes = 0

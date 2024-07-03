@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c6sqqxrqj1ao3"]
+[gd_scene load_steps=29 format=3 uid="uid://c6sqqxrqj1ao3"]
 
 [ext_resource type="Texture2D" uid="uid://bgbtulr5nb763" path="res://menu_inicial/sprites/Captura de ecrã 2024-04-11 114919.png" id="1_2xk4u"]
 [ext_resource type="Texture2D" uid="uid://cq6ftgciv1ilv" path="res://terrain/assets/Interiors_free_32x32.png" id="2_8kh7x"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ufptu7cvu1wi" path="res://Parte_da_luta/boss/inimigo.tscn" id="3_l64lw"]
 [ext_resource type="Texture2D" uid="uid://dbln1jxojn0fe" path="res://Parte_da_luta/terreno/Full.png" id="3_s1axx"]
 [ext_resource type="Texture2D" uid="uid://qcn8yeledbw6" path="res://character/assets/light.png" id="5_bijdc"]
+[ext_resource type="PackedScene" uid="uid://c3u6yriyi3aun" path="res://menu_inicial/pause_menu/pause_menu.tscn" id="7_eeiqt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvnm8"]
 texture = ExtResource("3_s1axx")
@@ -510,3 +511,5 @@ shadow_filter = 1
 shadow_filter_smooth = 3.0
 texture = ExtResource("5_bijdc")
 texture_scale = 0.5
+
+[node name="pause_menu" parent="." instance=ExtResource("7_eeiqt")]

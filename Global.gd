@@ -3,8 +3,8 @@ extends Node
 
 var contar_morte = true
 
-var seconds = 20
-var minutes = 0
+var seconds = 0
+var minutes = 3
 
 var danoRecebido = false
 var danoRecebido2 = false
